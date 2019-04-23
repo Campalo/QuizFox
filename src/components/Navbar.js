@@ -38,9 +38,7 @@ function Navbar(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             QuizFox
           </Typography>
-          <Button color="inherit" component={Link} to="/AboutUs">
-            About us
-          </Button>
+          <Button color="inherit">About us</Button>
         </Toolbar>
       </AppBar>
     </div>
