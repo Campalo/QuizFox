@@ -35,7 +35,11 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Header />
-          <CategoryCard />
+          <section id="categoryCards">
+            <CategoryCard />
+            <CategoryCard />
+            <CategoryCard />
+          </section>
         </div>
         <QuestionsAPI />
       </MuiThemeProvider>

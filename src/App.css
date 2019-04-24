@@ -44,3 +44,9 @@ p {
   background-size: cover;
   height: 140px;
 }
+
+#categoryCards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
