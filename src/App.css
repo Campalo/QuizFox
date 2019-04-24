@@ -1,0 +1,35 @@
+<<<<<<< HEAD
+=======
+.Header {
+  background-image: url("./img/fox_header.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: grey;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 5px rgb(50, 50, 50);
+  box-shadow: 0 0 5px rgb(50, 50, 50);
+}
+
+h1 {
+  font-size: 2.8rem;
+  color: whitesmoke;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.7rem;
+  color: whitesmoke;
+}
+
+p {
+  font-size: 1.2rem;
+}
+>>>>>>> 1cb420e8ba8bb2484282b774a64c8c810304a297
