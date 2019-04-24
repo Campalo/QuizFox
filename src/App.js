@@ -7,15 +7,12 @@ import Header from "./components/Header";
 import CategoryCard from "./components/Category";
 import QuestionsAPI from "./components/QuestionsAPI";
 
-const renderHTML = (rawHTML: string) =>
-  React.createElement("div", {
-    dangerouslySetInnerHTML: { __html: rawHTML }
-  });
-
 class App extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      question: []
+    };
   }
 
   componentDidMount() {
@@ -41,7 +38,7 @@ class App extends Component {
             <CategoryCard />
           </section>
         </div>
-        <QuestionsAPI />
+        <QuestionsAPI question={this.state.question} />
       </MuiThemeProvider>
     );
   }
