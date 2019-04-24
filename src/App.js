@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
+import Navbar from "./components/Navbar";
 // Theme:
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import MyTheme from "./Theme";
@@ -10,6 +11,7 @@ class App extends Component {
     return (
       <MuiThemeProvider theme={MyTheme}>
         <div className="App">
+          <Navbar />
           <Header />
         </div>
       </MuiThemeProvider>
