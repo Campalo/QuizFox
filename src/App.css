@@ -38,6 +38,9 @@ p {
   font-size: 1.2rem;
 }
 
-#imgCard1 {
-  background-image: url(./img/category_card.jpg);
+.cardImage {
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+  height: 140px;
 }

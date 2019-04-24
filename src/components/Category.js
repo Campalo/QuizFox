@@ -14,7 +14,7 @@ const styles = {
     margin: "50px"
   },
   media: {
-    height: 140
+    height: "140px"
   },
   padding: {
     paddingBottom: "10px"
@@ -26,11 +26,21 @@ function CategoryCard(props) {
   return (
     <Card className={classes.card}>
       <CardActionArea>
+        {/* ISSUE : either the image is too big or it does not appear at all 
+        
+        <CardMedia className={classes.media}>
+          <img
+            src="https://i.imgur.com/1MLvmOW.jpg"
+            className={classes.cardImage}
+            alt="little fox"
+          />
+        </CardMedia> */}
         <CardMedia
           className={classes.media}
-          image="./img/category_card.jpg" // image not displaying, why?
-          title="Little fox looking at you"
+          image="https://i.imgur.com/1MLvmOW.jpg"
+          title="Little fox"
         />
+
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             First Category
