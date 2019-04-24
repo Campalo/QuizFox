@@ -27,7 +27,6 @@ function CategoryCard(props) {
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
-          color="primary"
           className={classes.media}
           image="./img/category_card.jpg" // image not displaying, why?
           title="Little fox looking at you"
