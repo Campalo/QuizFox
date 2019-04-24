@@ -1,18 +1,11 @@
 import React, { Component } from "react";
-import "./App.css";
-import Navbar from "./components/Navbar";
-// Theme:
-import { MuiThemeProvider } from "@material-ui/core/styles";
-import MyTheme from "./Theme";
-import Header from "./components/Header";
-import QuestionsAPI from "./components/QuestionsAPI";
 
 const renderHTML = (rawHTML: string) =>
   React.createElement("div", {
     dangerouslySetInnerHTML: { __html: rawHTML }
   });
 
-class App extends Component {
+export default class QuestionsAPI extends Component {
   constructor() {
     super();
     this.state = {};
@@ -30,16 +23,18 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <MuiThemeProvider theme={MyTheme}>
-        <div className="App">
-          <Navbar />
-          <Header />
+    var { isLoaded, question } = this.state;
+
+    if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <div>
+          <h5>{renderHTML(question.question)}</h5>
+          <p>{renderHTML(question.correct_answer)}</p>
+          <p>{renderHTML(question.incorrect_answers)}</p>
         </div>
-        <QuestionsAPI />
-      </MuiThemeProvider>
-    );
+      );
+    }
   }
 }
-
-export default App;
