@@ -13,6 +13,11 @@
   box-shadow: 0 0 5px rgb(50, 50, 50);
 }
 
+.icon {
+  height: 2rem;
+  margin-right: 2rem;
+}
+
 h1 {
   font-size: 2.8rem;
   color: whitesmoke;
