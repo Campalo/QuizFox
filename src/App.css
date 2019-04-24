@@ -11,6 +11,8 @@
   justify-content: center;
   text-shadow: 0 0 5px rgb(50, 50, 50);
   box-shadow: 0 0 5px rgb(50, 50, 50);
+  text-align: center;
+  padding: 50px;
 }
 
 h1 {
