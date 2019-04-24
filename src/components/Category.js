@@ -10,10 +10,14 @@ import Typography from "@material-ui/core/Typography";
 
 const styles = {
   card: {
-    maxWidth: 345
+    maxWidth: 300,
+    margin: "50px"
   },
   media: {
     height: 140
+  },
+  padding: {
+    paddingBottom: "10px"
   }
 };
 
@@ -23,26 +27,32 @@ function CategoryCard(props) {
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
+          color="primary"
           className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
+          image="./img/category_card.jpg" // image not displaying, why?
+          title="Little fox looking at you"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Lizard
+            First Category
           </Typography>
-          <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+          <Typography component="p" className={classes.padding}>
+            Do you like XXX then this First Category is for you, give it a try!
+          </Typography>
+          <Typography component="p" color="secondary">
+            Chose your difficulty:
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
-          Share
+          Easy
         </Button>
         <Button size="small" color="primary">
-          Learn More
+          Medium
+        </Button>
+        <Button size="small" color="primary">
+          Hard
         </Button>
       </CardActions>
     </Card>

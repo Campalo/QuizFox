@@ -32,3 +32,7 @@ h3 {
 p {
   font-size: 1.2rem;
 }
+
+#imgCard1 {
+  background-image: url(./img/category_card.jpg);
+}
