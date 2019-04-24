@@ -19,7 +19,7 @@ function Header(props) {
       {/* background image in css file */}
       <h1>Welcome to QuizFox!</h1>
       <h3>A Trivial Pursuit-like game created during a React bootcamp</h3>
-      <p color="primary">
+      <p>
         Eager to play? Choose one category and its level of difficulty to access
         the questions
       </p>

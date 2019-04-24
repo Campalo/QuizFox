@@ -11,6 +11,8 @@
   justify-content: center;
   text-shadow: 0 0 5px rgb(50, 50, 50);
   box-shadow: 0 0 5px rgb(50, 50, 50);
+  text-align: center;
+  padding: 50px;
 }
 
 .icon {
@@ -34,4 +36,17 @@ h3 {
 
 p {
   font-size: 1.2rem;
+}
+
+.cardImage {
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+  height: 140px;
+}
+
+#categoryCards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

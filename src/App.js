@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
-import Navbar from "./components/Navbar";
-// Theme:
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import MyTheme from "./Theme";
+import Navbar from "./components/Navbar";
 import Header from "./components/Header";
+import CategoryCard from "./components/Category";
 import QuestionsAPI from "./components/QuestionsAPI";
 
 const renderHTML = (rawHTML: string) =>
@@ -35,6 +35,11 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Header />
+          <section id="categoryCards">
+            <CategoryCard />
+            <CategoryCard />
+            <CategoryCard />
+          </section>
         </div>
         <QuestionsAPI />
       </MuiThemeProvider>
