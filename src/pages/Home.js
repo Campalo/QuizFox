@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import CategoryCard from "../components/Category";
 import Navbar2 from "../components/globalComponents/Navbar2";
 import Footer from "../components/globalComponents/Footer";
+import "../App.css";
 
 class Home extends Component {
   render() {
