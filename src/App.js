@@ -3,11 +3,10 @@ import "./App.css";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import MyTheme from "./Theme";
 //import Navbar from "./components/Navbar";
-
 import QuestionsAPI from "./components/QuestionsAPI";
-import Footer from "./components/Footer";
+import Footer from "./components/globalComponents/Footer";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Navbar2 from "./components/Navbar2";
+import Navbar2 from "./components/globalComponents/Navbar2";
 
 class App extends Component {
   constructor() {
@@ -49,6 +48,6 @@ class App extends Component {
       </BrowserRouter>
     );
   }
-}
+
 
 export default App;

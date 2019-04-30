@@ -6,6 +6,7 @@ class Quiz extends Component {
   render() {
     return (
       <div>
+        <h1>QA</h1>
         <Question />
         <section>
           <Answer />
