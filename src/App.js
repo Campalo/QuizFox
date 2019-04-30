@@ -1,49 +1,54 @@
-import React, { Component } from 'react';
-import './App.css';
-import { MuiThemeProvider } from '@material-ui/core/styles';
-import MyTheme from './Theme';
-import Navbar from './components/Navbar';
-import Header from './components/Header';
-import CategoryCard from './components/Category';
-import QuestionsAPI from './components/QuestionsAPI';
-import Footer from './components/Footer';
+import React, { Component } from "react";
+import "./App.css";
+import { MuiThemeProvider } from "@material-ui/core/styles";
+import MyTheme from "./Theme";
+//import Navbar from "./components/Navbar";
+
+import QuestionsAPI from "./components/QuestionsAPI";
+import Footer from "./components/Footer";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Navbar2 from "./components/Navbar2";
 
 class App extends Component {
-	constructor() {
-		super();
-		this.state = {
-			question: [],
-		};
-	}
+  constructor() {
+    super();
+    this.state = {
+      question: []
+    };
+  }
 
-	componentDidMount() {
-		fetch('https://opentdb.com/api.php?amount=1')
-			.then(res => res.json())
-			.then(json => {
-				this.setState({
-					isLoaded: true,
-					question: json.results[0],
-				});
-			});
-	}
+  componentDidMount() {
+    fetch("https://opentdb.com/api.php?amount=1")
+      .then(res => res.json())
+      .then(json => {
+        this.setState({
+          isLoaded: true,
+          question: json.results[0]
+        });
+      });
+  }
 
-	render() {
-		return (
-			<MuiThemeProvider theme={MyTheme}>
-				<div className="App">
-					<Navbar />
-					<Header />
-					<section id="categoryCards">
-						<CategoryCard />
-						<CategoryCard />
-						<CategoryCard />
-					</section>
-					<QuestionsAPI question={this.state.question} />
-					<Footer />
-				</div>
-			</MuiThemeProvider>
-		);
-	}
+  render() {
+    return (
+      <BrowserRouter>
+        <MuiThemeProvider theme={MyTheme}>
+          <div className="App">
+            <Navbar2 />
+            {/* <Navbar /> */}
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/quiz" component={Quiz} />
+              <Route path="/quiz/result" component={QuizResult} />
+              <Route path="/about-us" component={AboutUs} />
+              <Route path="/404" component={NoPage} />
+            </Switch>
+            <QuestionsAPI question={this.state.question} /> */}
+            <Footer />
+          </div>
+        </MuiThemeProvider>
+      </BrowserRouter>
+    );
+  }
 }
 
 export default App;
