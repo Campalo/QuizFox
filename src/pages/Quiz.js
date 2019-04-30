@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Question from "./components/Question";
-import Answer from "./components/Answer";
+import Question from "../components/Question";
+import Answer from "../components/Answer";
 
 class Quiz extends Component {
   render() {

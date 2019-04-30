@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Header from "./components/Header";
-import CategoryCard from "./components/Category";
+import Header from "../components/Header";
+import CategoryCard from "../components/Category";
 
 class Home extends Component {
   render() {

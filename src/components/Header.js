@@ -15,4 +15,4 @@ function Header(props) {
   );
 }
 
-export default withStyles(styles)(Header);
+export default Header;
