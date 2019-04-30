@@ -26,15 +26,6 @@ function CategoryCard(props) {
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        {/* ISSUE : either the image is too big or it does not appear at all 
-        
-        <CardMedia className={classes.media}>
-          <img
-            src="https://i.imgur.com/1MLvmOW.jpg"
-            className={classes.cardImage}
-            alt="little fox"
-          />
-        </CardMedia> */}
         <CardMedia
           className={classes.media}
           image="https://i.imgur.com/1MLvmOW.jpg"
