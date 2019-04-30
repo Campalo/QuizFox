@@ -1,8 +1,11 @@
 import React from "react";
+import Navbar2 from "../components/globalComponents/Navbar2";
+import Footer from "../components/globalComponents/Footer";
 
 const AboutUs = () => {
   return (
     <div>
+      <Navbar2 />
       <h1>Our Team</h1>
       <section>
         <div>
@@ -18,6 +21,7 @@ const AboutUs = () => {
           <p>Camille</p>
         </div>
       </section>
+      <Footer />
     </div>
   );
 };
