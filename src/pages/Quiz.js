@@ -9,14 +9,16 @@ class Quiz extends Component {
     return (
       <div>
         <Navbar2 />
-        <h1>QA</h1>
-        <Question />
-        <section>
-          <Answer />
-          <Answer />
-          <Answer />
-          <Answer />
-        </section>
+        <main className="mainSize">
+          <h1>QA</h1>
+          <Question />
+          <section>
+            <Answer />
+            <Answer />
+            <Answer />
+            <Answer />
+          </section>
+        </main>
         <Footer />
       </div>
     );
