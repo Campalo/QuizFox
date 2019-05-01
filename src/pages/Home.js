@@ -16,7 +16,7 @@ class Home extends Component {
           <CategoryCard />
           <CategoryCard />
         </section>
-        <Footer />
+        <Footer variant="contained" color="secondary" />
       </div>
     );
   }

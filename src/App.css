@@ -50,21 +50,44 @@ HEADER
 /***
 FOOTER
 ***/
-.Footer {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  align-items: center;
-  text-align: center;
-  background-color: #ff9800;
-  height: 8vh;
-}
-
 .Footer-H4 {
   color: black;
   font-size: 1.3rem;
   margin: 0;
   padding: 0;
+}
+
+.MyFooter {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  background-color: burlywood;
+  box-shadow: 0 0 3px rgb(50, 50, 50);
+  height: 80px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .MyFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+  }
+  .MyFooter p {
+    margin: 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .MyFooter {
+    height: 180px;
+  }
+  .MyFooter p {
+    font-size: 1rem;
+  }
 }
 
 /***
