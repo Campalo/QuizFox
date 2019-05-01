@@ -3,20 +3,25 @@ GLOBAL
 ***/
 h1 {
   font-size: 2.8rem;
-  color: whitesmoke;
+  text-align: center;
+  padding: 30px;
 }
 
 h2 {
   font-size: 2rem;
+  text-align: center;
 }
 
 h3 {
   font-size: 1.7rem;
-  color: whitesmoke;
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 p {
   font-size: 1.2rem;
+  padding-top: 10px;
 }
 
 /***
@@ -44,6 +49,7 @@ HEADER
   text-shadow: 0 0 5px rgb(50, 50, 50);
   box-shadow: 0 0 5px rgb(50, 50, 50);
   text-align: center;
+  color: whitesmoke;
 }
 
 /***
@@ -57,8 +63,12 @@ CATEGORY CARDS
 }
 
 #responsiveCards {
-  max-width: 300px;
+  max-width: 450px;
   margin: 10px;
+}
+
+#mediaCards {
+  height: 300px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -68,8 +78,14 @@ CATEGORY CARDS
     align-items: center;
     justify-content: center;
   }
+}
+
+@media only screen and (max-width: 320px) {
   #responsiveCards {
-    max-width: 500px;
+    max-width: 270px;
+  }
+  #mediaCards {
+    height: 230px;
   }
 }
 
@@ -100,7 +116,7 @@ FOOTER
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 200px;
+    height: 230px;
   }
   .MyFooter p {
     margin: 10px;
@@ -109,7 +125,7 @@ FOOTER
 
 @media only screen and (max-width: 768px) {
   .MyFooter {
-    height: 180px;
+    height: 210px;
   }
   .MyFooter p {
     font-size: 1rem;
