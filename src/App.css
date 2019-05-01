@@ -108,6 +108,11 @@ FOOTER
   background-color: burlywood;
   box-shadow: 0 0 3px rgb(50, 50, 50);
   height: 80px;
+  /* to fix the footer to the bottom of each page */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 @media only screen and (max-width: 1024px) {
