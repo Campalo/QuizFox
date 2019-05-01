@@ -4,7 +4,6 @@ import '../../App.css';
 function Footer(props) {
 	return (
 		<footer className="MyFooter">
-			{/* background image in css file */}
 			<p>&copy;Quiz Fox 2019 by:</p>
 			<p>
 				Laura Sochaczewski
