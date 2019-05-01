@@ -10,7 +10,7 @@ function Header() {
       <h1>Welcome to QuizFox</h1>
       <h3>A Trivial Pursuit-like game created during a React bootcamp</h3>
       <MyButton>
-        <NavLink to="categories">Play Now</NavLink>
+        <NavLink to="/categories">Play Now</NavLink>
       </MyButton>
     </header>
   );
