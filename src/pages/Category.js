@@ -8,6 +8,8 @@ class Home extends Component {
     return (
       <div>
         <Navbar2 />
+        <h1>Eager to play?</h1>
+        <h3>Choose one category and its level of difficulty to access the questions</h3>
         <section id="categoryCards">
           <CategoryCard />
           <CategoryCard />
