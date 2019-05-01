@@ -1,5 +1,4 @@
 import React from "react";
-import "../App.css";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 
@@ -13,10 +12,10 @@ const styles = () => ({
 });
 
 function MyButton(props) {
-  const { classes } = props;
+  const { classes, children } = props;
   return (
     <Button variant="contained" color="primary" className={classes.button}>
-      <b />
+      <b>{children}</b>
     </Button>
   );
 }
