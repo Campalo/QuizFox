@@ -9,11 +9,13 @@ class Result extends Component {
     return (
       <div>
         <Navbar2 />
-        <ResultCard />
-        <section>
-          <MyButton>Play again</MyButton>
-          <MyButton>Choose new category or difficulty level</MyButton>
-        </section>
+        <main className="mainSize">
+          <ResultCard />
+          <section>
+            <MyButton>Play again</MyButton>
+            <MyButton>Choose new category or difficulty level</MyButton>
+          </section>
+        </main>
         <Footer />
       </div>
     );
