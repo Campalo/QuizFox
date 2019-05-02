@@ -22,4 +22,4 @@ class Result extends Component {
   }
 }
 
-export default ResultCard;
+export default Result;

@@ -9,8 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import "../App.css";
 import { NavLink } from "react-router-dom";
 
-function CategoryCard(props) {
-  const { classes } = props;
+function CategoryCard() {
   return (
     <Card id="responsiveCards">
       <CardActionArea>
