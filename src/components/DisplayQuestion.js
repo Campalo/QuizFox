@@ -1,11 +1,11 @@
 import React from "react";
 
-const DisplayQuestion = ({ showQuestionAnswers }) => {
+const DisplayQuestion = ({ showQuestion }) => {
   return (
     <div>
-      <h5>{showQuestionAnswers.question}</h5>
-      <p>{showQuestionAnswers.correct_answer}</p>
-      <p>{showQuestionAnswers.incorrect_answers}</p>
+      <h5>{showQuestion.question}</h5>
+      <p>{showQuestion.correct_answer}</p>
+      <p>{showQuestion.incorrect_answers}</p>
     </div>
   );
 };

@@ -1,4 +1,3 @@
-//we use useState() (a state hook) instaead of setState
 import React, { Component } from "react";
 import DisplayQuestion from "../components/DisplayQuestion";
 import Navbar2 from "../components/globalComponents/Navbar2";
@@ -8,25 +7,25 @@ import getQuestion from "../Api";
 class Quiz extends Component {
   constructor(props) {
     super(props);
-    // get the category and difficulty parameters from the quiz url which is defined
-    // when the user click on the difficulty button on the CategoryCard on the Category page
+    // match: get the category and difficulty parameters from the quiz url
+    // this url is defined when the user choose a difficulty level on a CategoryCard
     const { category, difficulty } = props.match.params;
-    // Set the initial values of the State
+    // setState: set the initial values of the State, here it is empty
     this.state = {
       category,
       difficulty,
-      questionAnswer: {}
+      quizQuestion: {}
     };
   }
 
-  // Triggered once the view is rendered
+  // will be triggered once the view is rendered (with default state)
+  // to pass those two parameters inside the getQuestion function, who will make the request to the api
   componentDidMount() {
-    // pass those to parameters inside the getQuestion function, who will make the request to the api
     getQuestion(this.state.category, this.state.difficulty)
-      // receive the 10 questions and related answers and pass only the first question to the state
+      // then: receive the 10 questions and related answers and pass only the first question to the state
       .then(result =>
         this.setState({
-          questionAnswer: result[0]
+          quizQuestion: result[0]
         })
       );
   }
@@ -37,7 +36,7 @@ class Quiz extends Component {
         <Navbar2 />
         <main className="mainSize">
           <h1>QA</h1>
-          <DisplayQuestion showQuestionAnswers={this.state.questionAnswer} />
+          <DisplayQuestion showQuestion={this.state.quizQuestion} />
         </main>
         <Footer />
       </div>
