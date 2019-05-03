@@ -23,6 +23,7 @@ class Quiz extends Component {
   componentDidMount() {
     getQuestion(this.state.category, this.state.difficulty)
       // then: receive the 10 questions and related answers and pass only the first question to the state
+      // the Quiz component "re-render" the quizQuestion's value
       .then(result =>
         this.setState({
           quizQuestion: result[0]
