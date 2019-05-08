@@ -1,36 +1,37 @@
-import React from 'react';
-import MyButton from './Button';
+import React from "react";
+import MyButton from "./Button";
 
-const DisplayQuestion = ({ showQuestion, currentQuestion, amount }) => {
-	let finalList = [];
+const DisplayQuestion = ({ quizQuestion, currentQuestion, amount }) => {
+  let finalList = [];
 
-	const answersList = [].concat(showQuestion.correct_answer).concat(showQuestion.incorrect_answers);
-	console.log('our array:', answersList);
+  // create an array called answersList and concat the 4 answers inside
+  const answersList = [].concat(quizQuestion.correct_answer).concat(quizQuestion.incorrect_answers);
+  console.log("our array:", answersList);
 
-	for (let i = 0; i < answersList.length; i++) {
-		finalList.push(<MyButton>{answersList[i]}</MyButton>);
-		console.log(finalList);
-	}
+  // push each item from answersList inside a button inside an array called finalList
+  for (let i = 0; i < answersList.length; i++) {
+    finalList.push(<MyButton>{answersList[i]}</MyButton>);
+    console.log(finalList);
+  }
 
-	function shuffle(finalList) {
-		for (let i = finalList.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
-			[finalList[i], finalList[j]] = [finalList[j], finalList[i]];
-		}
-		return finalList;
-	}
+  //shuffle the buttons to display the answers in a random order
+  function shuffle(finalList) {
+    for (let i = finalList.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [finalList[i], finalList[j]] = [finalList[j], finalList[i]];
+    }
+    return finalList;
+  }
 
-	return (
-		<div>
-			<h5>{showQuestion.question}</h5>
-			<p>{showQuestion.correct_answer}</p>
-			{/* <p>{showQuestion.incorrect_answers}</p> */}
-			<p>
-				You are on Question {currentQuestion} on {amount}
-			</p>
-			<p>{shuffle(finalList)}</p>
-		</div>
-	);
+  return (
+    <div>
+      <h5>{quizQuestion.question}</h5>
+      <section>{shuffle(finalList)}</section>
+      <p>
+        You are on Question {currentQuestion} on {amount}
+      </p>
+    </div>
+  );
 };
 
 export default DisplayQuestion;
