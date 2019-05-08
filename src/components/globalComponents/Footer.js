@@ -8,7 +8,7 @@ function Footer(props) {
       <p>
         Laura Sochaczewski
         <a href="https://github.com/laura-mso" className="decorationNone">
-          Github<span class="heart">❤</span>
+          Github<span className="heart">❤</span>
         </a>
         <a
           href="https://www.linkedin.com/in/laura-sochaczewski-70863b121/"
@@ -19,7 +19,7 @@ function Footer(props) {
       <p>
         Camille Charteau
         <a href="https://github.com/Campalo" className="decorationNone">
-          Github<span class="heart">❤</span>
+          Github<span className="heart">❤</span>
         </a>
         <a href="https://www.linkedin.com/in/camille-charteau/" className="decorationNone">
           LinkedIn
@@ -28,7 +28,7 @@ function Footer(props) {
       <p>
         Raphael Lautenbacher
         <a href="https://github.com/Datingel" className="decorationNone">
-          Github<span class="heart">❤</span>
+          Github<span className="heart">❤</span>
         </a>
         <a
           href="https://www.linkedin.com/in/raphael-lautenbacher-4940a6171/"

@@ -9,8 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import "../App.css";
 import { NavLink } from "react-router-dom";
 
-function CategoryCard(props) {
-  const { classes } = props;
+function CategoryCard() {
   return (
     <Card id="responsiveCards">
       <CardActionArea>
@@ -28,14 +27,17 @@ function CategoryCard(props) {
         </CardContent>
       </CardActionArea>
       <CardActions>
+        {/* Use the Url Parameters to set the category and difficulty in the url
+        and make those parameters available for the Quiz component.
+        TO DO : make the category parameter dynamique */}
         <Button size="large" color="primary">
-          <NavLink to="/quiz">Easy</NavLink>
+          <NavLink to="/quiz/18/easy">Easy</NavLink>
         </Button>
         <Button size="large" color="primary">
-          <NavLink to="/quiz">Medium</NavLink>
+          <NavLink to="/quiz/18/medium">Medium</NavLink>
         </Button>
         <Button size="large" color="primary">
-          <NavLink to="/quiz">Hard</NavLink>
+          <NavLink to="/quiz/18/hard">Hard</NavLink>
         </Button>
       </CardActions>
     </Card>
