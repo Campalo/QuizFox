@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import DisplayQuestion from "../components/DisplayQuestion";
 import Navbar2 from "../components/globalComponents/Navbar2";
 import Footer from "../components/globalComponents/Footer";
-import getQuestion from "../Api";
 
 class Quiz extends Component {
   constructor(props) {
@@ -14,14 +13,25 @@ class Quiz extends Component {
     this.state = {
       category,
       difficulty,
-      quizQuestion: {}
+      amount: 10,
+      type: "multiple",
+      quizQuestion: {},
+      currentQuestion: 1,
+      correctAnswerCounter: 0
     };
   }
 
-  // will be triggered once the view is rendered (with default state)
-  // to pass those two parameters inside the getQuestion function, who will make the request to the api
   componentDidMount() {
-    getQuestion(this.state.category, this.state.difficulty)
+    //getQuestion(this.state.category, this.state.difficulty) {
+    const url = `https://opentdb.com/api.php?amount=${this.state.amount}&category=${
+      this.state.category
+    }&difficulty=${this.state.difficulty}&type=${this.state.type}`;
+    //fetch: make a request to the server to get the info we are looking for based on the Query Parameters we defined
+    fetch(url)
+      // then: receive the info (response) and transform it into json format
+      .then(response => response.json())
+      // then: return only the array with the info we want (questions and answers)
+      .then(json => json.results)
       // then: receive the 10 questions and related answers and pass only the first question to the state
       // the Quiz component "re-render" the quizQuestion's value
       .then(result =>
@@ -29,6 +39,7 @@ class Quiz extends Component {
           quizQuestion: result[0]
         })
       );
+    //}
   }
 
   render() {
@@ -37,7 +48,11 @@ class Quiz extends Component {
         <Navbar2 />
         <main className="mainSize">
           <h1>QA</h1>
-          <DisplayQuestion showQuestion={this.state.quizQuestion} />
+          <DisplayQuestion
+            showQuestion={this.state.quizQuestion}
+            currentQuestion={this.state.currentQuestion}
+            amount={this.state.amount}
+          />
         </main>
         <Footer />
       </div>
