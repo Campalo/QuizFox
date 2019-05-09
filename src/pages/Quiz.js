@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import DisplayQuestion from "../components/DisplayQuestion";
-import Navbar2 from "../components/globalComponents/Navbar2";
-import Footer from "../components/globalComponents/Footer";
-import DisplayResult from "../components/DisplayResult";
+import React, { Component } from 'react';
+import DisplayQuestion from '../components/DisplayQuestion';
+import Navbar2 from '../components/globalComponents/Navbar2';
+import Footer from '../components/globalComponents/Footer';
+import DisplayResult from '../components/DisplayResult';
 
 class Quiz extends Component {
   constructor(props) {
@@ -15,21 +15,32 @@ class Quiz extends Component {
       category,
       difficulty,
       amount: 10,
-      type: "multiple",
+      type: 'multiple',
       quizQuestion: {},
       currentQuestion: 1,
       correctAnswerCounter: 0
     };
     this.incrementOnClick = this.incrementOnClick.bind(this);
+    this.nextQuestionOnClick = this.nextQuestionOnClick.bind(this);
   }
 
   //function to increment the CurrentQuestion value when a new Question is displayed after clicking on "Next Question" button
   incrementOnClick() {
-    console.log("Current question: ", this.state.currentQuestion);
+    console.log('Current question: ', this.state.currentQuestion);
     this.setState({
       currentQuestion: this.state.currentQuestion + 1
     });
   }
+
+  // // WORK IN PROGRESS
+  // nextQuestionOnClick() {
+  //   console.log("Next question: ", this.state.quizQuestion);
+  //   let i = results.indexOf(this.state.quizQuestion);
+  //   if (i >= 0 && i < results.length)
+  //     this.setState({
+  //       quizQuestion: results[i + 1]
+  //     });
+  // }
 
   componentDidMount() {
     // ex: https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple
@@ -63,6 +74,7 @@ class Quiz extends Component {
             currentQuestion={this.state.currentQuestion}
             amount={this.state.amount}
             incrementOnClick={this.incrementOnClick}
+            //nextQuestionOnClick={this.nextQuestionOnClick}
           />
           <DisplayResult
             //Here we pass ONLY the correct_answer value from the quizQuestion object into the DisplayResult child
