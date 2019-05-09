@@ -1,7 +1,7 @@
 import React from "react";
 import MyButton from "./Button";
 
-const DisplayQuestion = ({ quizQuestion, currentQuestion, amount }) => {
+const DisplayQuestion = ({ quizQuestion, currentQuestion, amount, incrementOnClick }) => {
   let finalList = [];
 
   // create an array called answersList and concat the 4 answers inside
@@ -22,6 +22,7 @@ const DisplayQuestion = ({ quizQuestion, currentQuestion, amount }) => {
     }
     return finalList;
   }
+  console.log("Current question: ", currentQuestion);
 
   return (
     <div>
@@ -30,6 +31,9 @@ const DisplayQuestion = ({ quizQuestion, currentQuestion, amount }) => {
       <p>
         You are on Question {currentQuestion} on {amount}
       </p>
+      {/* The onClick event works only inside a HTML tag not inside a component ex: "MyButton"
+      If the onClick event is written as an arrow function then there is no need to bind it */}
+      <button onClick={incrementOnClick}>Next Question</button>
     </div>
   );
 };
