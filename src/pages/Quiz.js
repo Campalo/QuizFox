@@ -20,6 +20,7 @@ class Quiz extends Component {
       currentQuestion: 1,
       correctAnswerCounter: 0
     };
+    this.incrementOnClick = this.incrementOnClick.bind(this);
   }
 
   //function to increment the CurrentQuestion value when a new Question is displayed after clicking on "Next Question" button
@@ -61,12 +62,8 @@ class Quiz extends Component {
             quizQuestion={this.state.quizQuestion}
             currentQuestion={this.state.currentQuestion}
             amount={this.state.amount}
+            incrementOnClick={this.incrementOnClick}
           />
-
-          {/* The onClick event works only inside a HTML tag not inside a component ex: "MyButton"
-          If the onClick event is written as an arrow function then there is no need to bind it */}
-          <button onClick={() => this.incrementOnClick()}>Next Question</button>
-
           <DisplayResult
             //Here we pass ONLY the correct_answer value from the quizQuestion object into the DisplayResult child
             correctAnswer={this.state.quizQuestion.correct_answer}
