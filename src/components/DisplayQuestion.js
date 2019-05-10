@@ -18,10 +18,7 @@ const DisplayQuestion = ({
   // push each item from answersList inside a button inside an array called finalList
   for (let i = 0; i < answersList.length; i++) {
     finalList.push(
-      <button
-        key={i}
-        onClick={e => scoreUpdateOnClick(e, i)}
-        className={let key= {i}; key === 0 ? 'incorrectBtnColor' : 'correctBtnColor'}>
+      <button key={i} onClick={e => scoreUpdateOnClick(e, i)}>
         {answersList[i]}
       </button>
     );
@@ -43,6 +40,7 @@ const DisplayQuestion = ({
     <div>
       <h5>{quizQuestion.question}</h5>
       <section>{shuffle(finalList)}</section>
+      <button className="incorrectBtnColor">Click me </button>
       <p>
         You are on Question {currentQuestion} on {amount}
       </p>
