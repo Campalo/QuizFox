@@ -1,5 +1,4 @@
 import React from 'react';
-import MyButton from './Button';
 
 const DisplayQuestion = ({
   quizQuestion,
@@ -19,7 +18,10 @@ const DisplayQuestion = ({
   // push each item from answersList inside a button inside an array called finalList
   for (let i = 0; i < answersList.length; i++) {
     finalList.push(
-      <button style={{ backgroundColor: 'yellow' }} key={i} onClick={e => scoreUpdateOnClick(e, i)}>
+      <button
+        key={i}
+        onClick={e => scoreUpdateOnClick(e, i)}
+        className={let key= {i}; key === 0 ? 'incorrectBtnColor' : 'correctBtnColor'}>
         {answersList[i]}
       </button>
     );

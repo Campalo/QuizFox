@@ -19,19 +19,28 @@ class Quiz extends Component {
       quizQuestion: {},
       currentQuestion: 1,
       score: 0,
+      buttonColor: {
+        correctColor: 'green',
+        incorrectColor: 'red',
+      },
     };
+
     this.incrementOnClick = this.incrementOnClick.bind(this);
     this.scoreUpdateOnClick = this.scoreUpdateOnClick.bind(this);
   }
   //function to update counter if right answer is clicked
   scoreUpdateOnClick(e, key) {
     if (key === 0) {
-      this.setState({ score: this.state.score + 1 });
+      this.setState({ score: this.state.score + 1 }) &&
+        this.setState({ buttonColor: this.state.buttonColor.correctColor });
     } else {
-      this.setState({ score: this.state.score });
+      this.setState({ score: this.state.score }) &&
+        this.setState({ buttonColor: this.state.buttonColor.incorrectColor });
     }
     console.log('correct answer is: ', this.state.quizQuestion.correct_answer);
     console.log('new score is: ', this.state.score);
+    console.log('the incorrect color is: ', this.state.buttonColor.incorrectColor);
+    console.log('the correct color is: ', this.state.buttonColor.correctColor);
   }
 
   //function to increment the CurrentQuestion value when a new Question is displayed after clicking on "Next Question" button
@@ -78,6 +87,7 @@ class Quiz extends Component {
             incrementOnClick={this.incrementOnClick}
             scoreUpdateOnClick={this.scoreUpdateOnClick}
             score={this.state.score}
+            buttonColor={this.state.buttonColor}
           />
           <DisplayResult
             //Here we pass ONLY the correct_answer value from the quizQuestion object into the DisplayResult child
