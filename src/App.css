@@ -98,11 +98,11 @@ CATEGORY CARDS
 DISPLAYQUESTION
 ***/
 
-.incorrectBtnColor {
+.red {
   background: red;
 }
 
-.correctBtnColor {
+.green {
   background: green;
 }
 
@@ -162,4 +162,8 @@ FOOTER
   .MyFooter p {
     font-size: 1rem;
   }
+}
+
+button {
+  border: 1px solid;
 }
