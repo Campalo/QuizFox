@@ -41,7 +41,7 @@ NAV
 HEADER
 ***/
 .Header {
-  background-image: url("./img/fox_header.jpg");
+  background-image: url('./img/fox_header.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -135,4 +135,15 @@ FOOTER
   .MyFooter p {
     font-size: 1rem;
   }
+}
+
+.noPage {
+  height: 50vh;
+  background-image: url('https://media0.giphy.com/media/3o7btSlEkVbvtjkW3K/giphy.gif?cid=790b76115cd57e456837535777ad14af&rid=giphy.gif');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
