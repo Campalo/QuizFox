@@ -16,14 +16,15 @@ class Quiz extends Component {
       difficulty,
       amount: 10,
       type: 'multiple',
-      quizQuestion: {},
-      currentQuestion: 1,
+      listQuestions: [],
+      currentQuestionNo: 0,
+      currentQuestion: {},
       score: 0
     };
     this.incrementOnClick = this.incrementOnClick.bind(this);
-    this.nextQuestionOnClick = this.nextQuestionOnClick.bind(this);
     this.scoreUpdateOnClick = this.scoreUpdateOnClick.bind(this);
   }
+
   //function to update counter if right answer is clicked
   scoreUpdateOnClick(e, key) {
     if (key === 0) {
@@ -31,29 +32,23 @@ class Quiz extends Component {
     } else {
       this.setState({ score: this.state.score });
     }
-    console.log('correct answer is: ', this.state.quizQuestion.correct_answer);
+    console.log('correct answer is: ', this.state.listQuestions.correct_answer);
     console.log('new score is: ', this.state.score);
   }
 
   //function to increment the CurrentQuestion value when a new Question is displayed after clicking on "Next Question" button
   incrementOnClick() {
-    console.log('Current question: ', this.state.currentQuestion);
+    console.log('Current question number: ', this.state.currentQuestionNo);
+    console.log('Current Qustion: ', this.state.listQuestions[this.state.currentQuestionNo + 1]);
+
     this.setState({
-      currentQuestion: this.state.currentQuestion + 1
+      currentQuestionNo: this.state.currentQuestionNo + 1,
+      currentQuestion: this.state.listQuestions[this.state.currentQuestionNo + 1]
     });
   }
 
-  // // WORK IN PROGRESS
-  // nextQuestionOnClick() {
-  //   console.log("Next question: ", this.state.quizQuestion);
-  //   let i = results.indexOf(this.state.quizQuestion);
-  //   if (i >= 0 && i < results.length)
-  //     this.setState({
-  //       quizQuestion: results[i + 1]
-  //     });
-  // }
-
   componentDidMount() {
+    console.log('[Quiz] componentDidMount');
     // ex: https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple
     const url = `https://opentdb.com/api.php?amount=${this.state.amount}&category=${
       this.state.category
@@ -65,15 +60,14 @@ class Quiz extends Component {
       // then: return only the array with the info we want (questions and answers)
       .then(json => json.results)
       // then: receive the 10 questions and related answers but pass only the first question to the state
-      // the Quiz component "re-render" the quizQuestion's value
-      .then(result =>
+      // the Quiz component "re-render" the listQuestions's value
+      .then(result => {
+        console.log('here is our result:', result);
         this.setState({
-          quizQuestion: result[0]
-        })
-      );
+          listQuestions: result
+        });
+      });
   }
-
-  //function to update the score with an if Statement
 
   render() {
     return (
@@ -82,17 +76,17 @@ class Quiz extends Component {
         <main className="mainSize">
           <h1>QA</h1>
           <DisplayQuestion
-            //Here we pass ALL the values from the quizQuestion object into the DisplayQuestion child
-            quizQuestion={this.state.quizQuestion}
-            currentQuestion={this.state.currentQuestion}
+            listQuestions={this.state.listQuestions}
+            currentQuestion={this.state.listQuestions[this.state.currentQuestion]}
+            currentQuestionNo={this.state.currentQuestionNo}
             amount={this.state.amount}
             incrementOnClick={this.incrementOnClick}
             scoreUpdateOnClick={this.scoreUpdateOnClick}
             score={this.state.score}
           />
           <DisplayResult
-            //Here we pass ONLY the correct_answer value from the quizQuestion object into the DisplayResult child
-            correctAnswer={this.state.quizQuestion.correct_answer}
+            //Here we pass ONLY the correct_answer value from the listQuestions object into the DisplayResult child
+            correctAnswer={this.state.listQuestions.correct_answer}
           />
         </main>
         <Footer />
