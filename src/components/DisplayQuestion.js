@@ -4,6 +4,7 @@ import React from 'react';
 const DisplayQuestion = ({
   listQuestions,
   currentQuestionNo,
+  currentQuestion,
   amount,
   incrementOnClick,
   scoreUpdateOnClick,
@@ -13,10 +14,10 @@ const DisplayQuestion = ({
 
   // create an array called answersList and concat the 4 answers inside
   const answersList = []
-    .concat(listQuestions.correct_answer)
-    .concat(listQuestions.incorrect_answers);
+    .concat(currentQuestion.correct_answer)
+    .concat(currentQuestion.incorrect_answers);
   console.log('answer list:', answersList[0]);
-  console.log('correct answer:', listQuestions.correct_answer);
+  console.log('correct answer:', currentQuestion.correct_answer);
 
   // push each item from answersList inside a button inside an array called finalList
   for (let i = 0; i < answersList.length; i++) {
@@ -40,7 +41,7 @@ const DisplayQuestion = ({
 
   return (
     <div>
-      <h5>{listQuestions.question}</h5>
+      <h5>{currentQuestion.question}</h5>
       <section>{shuffle(finalList)}</section>
       <p>
         You are on Question {currentQuestionNo} on {amount}
