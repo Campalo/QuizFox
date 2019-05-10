@@ -41,7 +41,7 @@ NAV
 HEADER
 ***/
 .Header {
-  background-image: url("./img/fox_header.jpg");
+  background-image: url('./img/fox_header.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -112,9 +112,24 @@ FOOTER
   text-align: center;
   background-color: burlywood;
   box-shadow: 0 0 3px rgb(50, 50, 50);
-  height: 80px;
+  height: 10vh;
 }
 
+.MyFooterRaphael {
+  height: 40px;
+}
+
+.MyFooterCamille {
+  height: 40px;
+}
+
+.MyFooterLaura {
+  height: 40px;
+}
+
+.MyFooterQuizFox {
+  height: 40px;
+}
 @media only screen and (max-width: 1024px) {
   .MyFooter {
     display: flex;

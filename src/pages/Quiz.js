@@ -18,10 +18,21 @@ class Quiz extends Component {
       type: 'multiple',
       quizQuestion: {},
       currentQuestion: 1,
-      correctAnswerCounter: 0
+      score: 0
     };
     this.incrementOnClick = this.incrementOnClick.bind(this);
     this.nextQuestionOnClick = this.nextQuestionOnClick.bind(this);
+    this.scoreUpdateOnClick = this.scoreUpdateOnClick.bind(this);
+  }
+  //function to update counter if right answer is clicked
+  scoreUpdateOnClick(e, key) {
+    if (key === 0) {
+      this.setState({ score: this.state.score + 1 });
+    } else {
+      this.setState({ score: this.state.score });
+    }
+    console.log('correct answer is: ', this.state.quizQuestion.correct_answer);
+    console.log('new score is: ', this.state.score);
   }
 
   //function to increment the CurrentQuestion value when a new Question is displayed after clicking on "Next Question" button
@@ -62,6 +73,8 @@ class Quiz extends Component {
       );
   }
 
+  //function to update the score with an if Statement
+
   render() {
     return (
       <div>
@@ -74,7 +87,8 @@ class Quiz extends Component {
             currentQuestion={this.state.currentQuestion}
             amount={this.state.amount}
             incrementOnClick={this.incrementOnClick}
-            //nextQuestionOnClick={this.nextQuestionOnClick}
+            scoreUpdateOnClick={this.scoreUpdateOnClick}
+            score={this.state.score}
           />
           <DisplayResult
             //Here we pass ONLY the correct_answer value from the quizQuestion object into the DisplayResult child
