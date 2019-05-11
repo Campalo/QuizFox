@@ -7,8 +7,7 @@ import DisplayResult from '../components/DisplayResult';
 class Quiz extends Component {
   constructor(props) {
     super(props);
-    // match: get the category and difficulty parameters from the quiz url
-    // this url is defined when the user choose a difficulty level on a CategoryCard
+    // match: get the category and difficulty parameters from the quiz url defined in the CategoryCard
     const { category, difficulty } = props.match.params;
     // setState: set the initial values of the State
     this.state = {
@@ -16,12 +15,11 @@ class Quiz extends Component {
       difficulty,
       amount: 10,
       type: 'multiple',
-      listQuestions: [],
-      currentQuestionNo: 0,
-      currentQuestion: {},
+      listQuiz: [],
+      currentQuizNo: 0,
       score: 0
     };
-    this.incrementOnClick = this.incrementOnClick.bind(this);
+    this.nextQuizOnClick = this.nextQuizOnClick.bind(this);
     this.scoreUpdateOnClick = this.scoreUpdateOnClick.bind(this);
   }
 
@@ -32,18 +30,17 @@ class Quiz extends Component {
     } else {
       this.setState({ score: this.state.score });
     }
-    console.log('correct answer is: ', this.state.listQuestions.correct_answer);
     console.log('new score is: ', this.state.score);
   }
 
   //function to increment the CurrentQuestion value when a new Question is displayed after clicking on "Next Question" button
-  incrementOnClick() {
+  nextQuizOnClick() {
     this.setState({
-      currentQuestionNo: this.state.currentQuestionNo + 1,
-      currentQuestion: this.state.listQuestions[this.state.currentQuestionNo + 1]
+      currentQuizNo: this.state.currentQuizNo + 1,
+      currentQuiz: this.state.listQuiz[this.state.currentQuiz + 1]
     });
-    console.log('Current question number: ', this.state.currentQuestionNo);
-    console.log('Current Qustion: ', this.state.listQuestions[this.state.currentQuestionNo + 1]);
+    console.log('Current question number: ', this.state.currentQuizNo);
+    console.log('Current Qustion: ', this.state.listQuiz[this.state.currentQuizNo + 1]);
   }
 
   componentDidMount() {
@@ -60,40 +57,34 @@ class Quiz extends Component {
       .then(json => json.results)
       // then: receive the 10 questions and related answers but pass only the first question to the state
       // the Quiz component "re-render" the listQuestions's value
-      .then(result => {
-        console.log('here is our result:', result);
-        this.setState(
-          {
-            listQuestions: result
-          },
-          this.setState({
-            currentQuestion: this.state.listQuestions[this.state.currentQuestionNo]
-          })
-        );
+      .then(allQuiz => {
+        console.log('here is our result:', allQuiz);
+        this.setState({
+          listQuiz: allQuiz
+        });
       });
   }
 
   render() {
-    //console.log(Object.keys(this.state.currentQuestion).length !== 0);
+    const currentQuiz = this.state.listQuiz[this.state.currentQuizNo];
+    if (!currentQuiz) return <div />;
     return (
       <div>
         <Navbar2 />
         <main className="mainSize">
           <h1>QA</h1>
-          {/* {this.state.currentQuestion && Object.keys(this.state.currentQuestion).length !== 0 ? (
-            <DisplayQuestion
-              currentQuestion={this.state.listQuestions[this.state.currentQuestion]}
-              currentQuestionNo={this.state.currentQuestionNo}
-              amount={this.state.amount}
-              incrementOnClick={this.incrementOnClick}
-              scoreUpdateOnClick={this.scoreUpdateOnClick}
-              score={this.state.score}
-            />
-          ) : null}
-          ) */}
+          <DisplayQuestion
+            currentQuiz={this.state.listQuiz[this.state.currentQuizNo]}
+            currentQuizNo={this.state.currentQuizNo}
+            amount={this.state.amount}
+            nextQuizOnClick={this.nextQuizOnClick}
+            scoreUpdateOnClick={this.scoreUpdateOnClick}
+            score={this.state.score}
+          />
+
           <DisplayResult
-            //Here we pass ONLY the correct_answer value from the listQuestions object into the DisplayResult child
-            correctAnswer={this.state.listQuestions.correct_answer}
+            //Here we pass ONLY the correct_answer value from the listQuiz object into the DisplayResult child
+            correctAnswer={this.state.listQuiz.correct_answer}
           />
         </main>
         <Footer />
