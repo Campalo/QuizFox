@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const DisplayQuestion = ({
   currentQuiz,
@@ -15,12 +15,10 @@ const DisplayQuestion = ({
 
   // create an array called answersList and concat the 4 answers inside
   const answersList = [].concat(currentQuiz.correct_answer).concat(currentQuiz.incorrect_answers);
-  console.log('answerList[0] is :', answersList[0]);
   console.log('correct answer is:', currentQuiz.correct_answer);
 
   // push each item from answersList inside a button inside an array called finalList
   for (let i = 0; i < answersList.length; i++) {
-    console.log('This is color of the Button: ', incorrectButton, correctButton);
     const buttonColor = i === 0 ? correctButton : incorrectButton;
     finalList.push(
       <button
@@ -33,9 +31,8 @@ const DisplayQuestion = ({
         {answersList[i]}
       </button>
     );
-    console.log('finalList array: ', finalList);
-    console.log('This is our key object:', Object.keys(finalList));
   }
+  console.log('shuffle time:', finalList);
 
   //shuffle the buttons to display the answers in a random order
   function shuffle(finalList) {
@@ -43,8 +40,10 @@ const DisplayQuestion = ({
       const j = Math.floor(Math.random() * (i + 1));
       [finalList[i], finalList[j]] = [finalList[j], finalList[i]];
     }
+    console.log('shuffle time 2:', finalList);
     return finalList;
   }
+  console.log('shuffle time 3:', finalList);
 
   return (
     <div>
