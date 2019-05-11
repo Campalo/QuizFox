@@ -16,6 +16,7 @@ class Quiz extends Component {
       amount: 10,
       type: 'multiple',
       listQuiz: [],
+      //currentQuizNo is our index so it start from 0
       currentQuizNo: 0,
       score: 0
     };
@@ -30,17 +31,13 @@ class Quiz extends Component {
     } else {
       this.setState({ score: this.state.score });
     }
-    console.log('new score is: ', this.state.score);
   }
 
   //function to increment the CurrentQuestion value when a new Question is displayed after clicking on "Next Question" button
   nextQuizOnClick() {
     this.setState({
-      currentQuizNo: this.state.currentQuizNo + 1,
-      currentQuiz: this.state.listQuiz[this.state.currentQuiz + 1]
+      currentQuizNo: this.state.currentQuizNo + 1
     });
-    console.log('Current question number: ', this.state.currentQuizNo);
-    console.log('Current Qustion: ', this.state.listQuiz[this.state.currentQuizNo + 1]);
   }
 
   componentDidMount() {
@@ -58,7 +55,6 @@ class Quiz extends Component {
       // then: receive the 10 questions and related answers but pass only the first question to the state
       // the Quiz component "re-render" the listQuestions's value
       .then(allQuiz => {
-        console.log('here is our result:', allQuiz);
         this.setState({
           listQuiz: allQuiz
         });
@@ -66,26 +62,30 @@ class Quiz extends Component {
   }
 
   render() {
+    // if listQuiz array is empty then return nothing, wait for the re-render to display the child
     const currentQuiz = this.state.listQuiz[this.state.currentQuizNo];
-    if (!currentQuiz) return <div />;
+    if (this.state.listQuiz.length === 0) return <div />;
+
+    // if currentQuizNo is smaller than amout(10) then return Question child, if not return Result child
+    const displayChild =
+      this.state.currentQuizNo < this.state.amount ? (
+        <DisplayQuestion
+          currentQuiz={this.state.listQuiz[this.state.currentQuizNo]}
+          currentQuizNo={this.state.currentQuizNo}
+          amount={this.state.amount}
+          nextQuizOnClick={this.nextQuizOnClick}
+          scoreUpdateOnClick={this.scoreUpdateOnClick}
+          score={this.state.score}
+        />
+      ) : (
+        <DisplayResult score={this.state.score} amount={this.state.amount} />
+      );
+
     return (
       <div>
         <Navbar2 />
         <main className="mainSize">
-          <h1>QA</h1>
-          <DisplayQuestion
-            currentQuiz={this.state.listQuiz[this.state.currentQuizNo]}
-            currentQuizNo={this.state.currentQuizNo}
-            amount={this.state.amount}
-            nextQuizOnClick={this.nextQuizOnClick}
-            scoreUpdateOnClick={this.scoreUpdateOnClick}
-            score={this.state.score}
-          />
-
-          <DisplayResult
-            //Here we pass ONLY the correct_answer value from the listQuiz object into the DisplayResult child
-            correctAnswer={this.state.listQuiz.correct_answer}
-          />
+          <section>{displayChild}</section>
         </main>
         <Footer />
       </div>

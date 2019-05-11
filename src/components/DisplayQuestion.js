@@ -38,10 +38,11 @@ const DisplayQuestion = ({
 
   return (
     <div>
-      <h5>{currentQuiz.question}</h5>
+      <h2> Quiz time </h2>
+      <h3>{currentQuiz.question}</h3>
       <section>{shuffle(finalList)}</section>
       <p>
-        Question {currentQuizNo} on {amount}
+        Question {currentQuizNo + 1} on {amount}
       </p>
       <p>
         Score: {score}/{amount}
