@@ -5,7 +5,7 @@ const NoPage = () => {
   return (
     <div>
       <Navbar2 />
-      <h2>You're way too far little fox, come back!</h2>
+      <h1>You're way too far little fox, come back!</h1>
       <section className="noPage" />
     </div>
   );
