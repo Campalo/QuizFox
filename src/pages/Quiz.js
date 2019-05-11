@@ -18,10 +18,14 @@ class Quiz extends Component {
       listQuiz: [],
       //currentQuizNo is our index so it start from 0
       currentQuizNo: 0,
-      score: 0
+      score: 0,
+      //Default color for the buttons + update color when click correct/incorrect
+      incorrectButton: '',
+      correctButton: ''
     };
     this.nextQuizOnClick = this.nextQuizOnClick.bind(this);
     this.scoreUpdateOnClick = this.scoreUpdateOnClick.bind(this);
+    this.colorUpdateOnClick = this.colorUpdateOnClick.bind(this);
   }
 
   //function to update counter if right answer is clicked
@@ -31,6 +35,11 @@ class Quiz extends Component {
     } else {
       this.setState({ score: this.state.score });
     }
+  }
+  //function to update color when clicked
+  colorUpdateOnClick() {
+    this.setState({ correctButton: 'green' });
+    this.setState({ incorrectButton: 'red' });
   }
 
   //function to increment the CurrentQuestion value when a new Question is displayed after clicking on "Next Question" button
@@ -63,7 +72,6 @@ class Quiz extends Component {
 
   render() {
     // if listQuiz array is empty then return nothing, wait for the re-render to display the child
-    const currentQuiz = this.state.listQuiz[this.state.currentQuizNo];
     if (this.state.listQuiz.length === 0) return <div />;
 
     // if currentQuizNo is smaller than amout(10) then return Question child, if not return Result child
@@ -74,6 +82,9 @@ class Quiz extends Component {
           currentQuizNo={this.state.currentQuizNo}
           amount={this.state.amount}
           nextQuizOnClick={this.nextQuizOnClick}
+          colorUpdateOnClick={this.colorUpdateOnClick}
+          correctButton={this.state.correctButton}
+          incorrectButton={this.state.incorrectButton}
           scoreUpdateOnClick={this.scoreUpdateOnClick}
           score={this.state.score}
         />
