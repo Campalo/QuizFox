@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import DisplayQuestion from "../components/DisplayQuestion";
-import Navbar2 from "../components/globalComponents/Navbar2";
-import Footer from "../components/globalComponents/Footer";
-import DisplayResult from "../components/DisplayResult";
+import React, { Component } from 'react';
+import DisplayQuestion from '../components/DisplayQuestion';
+import Navbar2 from '../components/globalComponents/Navbar2';
+import Footer from '../components/globalComponents/Footer';
+import DisplayResult from '../components/DisplayResult';
 
 class Quiz extends Component {
   constructor(props) {
@@ -15,19 +15,30 @@ class Quiz extends Component {
       category,
       difficulty,
       amount: 10,
-      type: "multiple",
+      type: 'multiple',
       quizQuestion: {},
       currentQuestion: 1,
-      correctAnswerCounter: 0
+      score: 0,
     };
     this.incrementOnClick = this.incrementOnClick.bind(this);
+    this.scoreUpdateOnClick = this.scoreUpdateOnClick.bind(this);
+  }
+  //function to update counter if right answer is clicked
+  scoreUpdateOnClick(e, key) {
+    if (key === 0) {
+      this.setState({ score: this.state.score + 1 });
+    } else {
+      this.setState({ score: this.state.score });
+    }
+    console.log('correct answer is: ', this.state.quizQuestion.correct_answer);
+    console.log('new score is: ', this.state.score);
   }
 
   //function to increment the CurrentQuestion value when a new Question is displayed after clicking on "Next Question" button
   incrementOnClick() {
-    console.log("Current question: ", this.state.currentQuestion);
+    console.log('Current question: ', this.state.currentQuestion);
     this.setState({
-      currentQuestion: this.state.currentQuestion + 1
+      currentQuestion: this.state.currentQuestion + 1,
     });
   }
 
@@ -46,10 +57,12 @@ class Quiz extends Component {
       // the Quiz component "re-render" the quizQuestion's value
       .then(result =>
         this.setState({
-          quizQuestion: result[0]
+          quizQuestion: result[0],
         })
       );
   }
+
+  //function to update the score with an if Statement
 
   render() {
     return (
@@ -63,6 +76,8 @@ class Quiz extends Component {
             currentQuestion={this.state.currentQuestion}
             amount={this.state.amount}
             incrementOnClick={this.incrementOnClick}
+            scoreUpdateOnClick={this.scoreUpdateOnClick}
+            score={this.state.score}
           />
           <DisplayResult
             //Here we pass ONLY the correct_answer value from the quizQuestion object into the DisplayResult child
