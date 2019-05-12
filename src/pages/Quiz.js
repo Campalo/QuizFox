@@ -7,8 +7,7 @@ import DisplayResult from '../components/DisplayResult';
 class Quiz extends Component {
   constructor(props) {
     super(props);
-    // match: get the category and difficulty parameters from the quiz url
-    // this url is defined when the user choose a difficulty level on a CategoryCard
+    // match: get the category and difficulty parameters from the quiz url defined in the CategoryCard
     const { category, difficulty } = props.match.params;
     // setState: set the initial values of the State
     this.state = {
@@ -16,13 +15,19 @@ class Quiz extends Component {
       difficulty,
       amount: 10,
       type: 'multiple',
-      quizQuestion: {},
-      currentQuestion: 1,
+      listQuiz: [],
+      //currentQuizNo is our index so it start from 0
+      currentQuizNo: 0,
       score: 0,
+      //Default color for the buttons + update color when click correct/incorrect
+      incorrectButton: '',
+      correctButton: ''
     };
-    this.incrementOnClick = this.incrementOnClick.bind(this);
+    this.nextQuizOnClick = this.nextQuizOnClick.bind(this);
     this.scoreUpdateOnClick = this.scoreUpdateOnClick.bind(this);
+    this.colorUpdateOnClick = this.colorUpdateOnClick.bind(this);
   }
+
   //function to update counter if right answer is clicked
   scoreUpdateOnClick(e, key) {
     if (key === 0) {
@@ -30,19 +35,24 @@ class Quiz extends Component {
     } else {
       this.setState({ score: this.state.score });
     }
-    console.log('correct answer is: ', this.state.quizQuestion.correct_answer);
-    console.log('new score is: ', this.state.score);
+  }
+  //function to update color when clicked
+  colorUpdateOnClick() {
+    this.setState({ correctButton: 'green', incorrectButton: 'red' });
   }
 
-  //function to increment the CurrentQuestion value when a new Question is displayed after clicking on "Next Question" button
-  incrementOnClick() {
-    console.log('Current question: ', this.state.currentQuestion);
+  //function to increment the CurrentQuiz number to be able to go to next question
+  //+ reset the button default color
+  nextQuizOnClick() {
     this.setState({
-      currentQuestion: this.state.currentQuestion + 1,
+      currentQuizNo: this.state.currentQuizNo + 1,
+      correctButton: '',
+      incorrectButton: ''
     });
   }
 
   componentDidMount() {
+    console.log('[Quiz] componentDidMount');
     // ex: https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple
     const url = `https://opentdb.com/api.php?amount=${this.state.amount}&category=${
       this.state.category
@@ -54,35 +64,41 @@ class Quiz extends Component {
       // then: return only the array with the info we want (questions and answers)
       .then(json => json.results)
       // then: receive the 10 questions and related answers but pass only the first question to the state
-      // the Quiz component "re-render" the quizQuestion's value
-      .then(result =>
+      // the Quiz component "re-render" the listQuestions's value
+      .then(allQuiz => {
         this.setState({
-          quizQuestion: result[0],
-        })
-      );
+          listQuiz: allQuiz
+        });
+      });
   }
 
-  //function to update the score with an if Statement
-
   render() {
+    // if listQuiz array is empty then return nothing, wait for the re-render to display the child
+    if (this.state.listQuiz.length === 0) return <div />;
+
+    // if currentQuizNo is smaller than amout(10) then return Question child, if not return Result child
+    const displayChild =
+      this.state.currentQuizNo < this.state.amount ? (
+        <DisplayQuestion
+          currentQuiz={this.state.listQuiz[this.state.currentQuizNo]}
+          currentQuizNo={this.state.currentQuizNo}
+          amount={this.state.amount}
+          nextQuizOnClick={this.nextQuizOnClick}
+          colorUpdateOnClick={this.colorUpdateOnClick}
+          correctButton={this.state.correctButton}
+          incorrectButton={this.state.incorrectButton}
+          scoreUpdateOnClick={this.scoreUpdateOnClick}
+          score={this.state.score}
+        />
+      ) : (
+        <DisplayResult score={this.state.score} amount={this.state.amount} />
+      );
+
     return (
       <div>
         <Navbar2 />
         <main className="mainSize">
-          <h1>QA</h1>
-          <DisplayQuestion
-            //Here we pass ALL the values from the quizQuestion object into the DisplayQuestion child
-            quizQuestion={this.state.quizQuestion}
-            currentQuestion={this.state.currentQuestion}
-            amount={this.state.amount}
-            incrementOnClick={this.incrementOnClick}
-            scoreUpdateOnClick={this.scoreUpdateOnClick}
-            score={this.state.score}
-          />
-          <DisplayResult
-            //Here we pass ONLY the correct_answer value from the quizQuestion object into the DisplayResult child
-            correctAnswer={this.state.quizQuestion.correct_answer}
-          />
+          <section>{displayChild}</section>
         </main>
         <Footer />
       </div>
