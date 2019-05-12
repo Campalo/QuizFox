@@ -7,12 +7,12 @@ const styles = () => ({
     margin: 50,
     padding: 10,
     width: 180,
-    fontSize: 20,
-  },
+    fontSize: 20
+  }
 });
 
 function MyButton(props) {
-  const { classes, children, scoreUpdateOnClick } = props;
+  const { classes, children } = props;
   return (
     <Button variant="contained" color="primary" className={classes.button}>
       <b>{children}</b>
