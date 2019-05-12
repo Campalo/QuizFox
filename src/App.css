@@ -2,152 +2,189 @@
 GLOBAL
 ***/
 h1 {
-	font-size: 2.8rem;
-	text-align: center;
-	padding: 30px;
+  font-size: 2.8rem;
+  text-align: center;
+  padding: 30px;
 }
 
 h2 {
-	font-size: 2rem;
-	text-align: center;
+  font-size: 2rem;
+  text-align: center;
 }
 
 h3 {
-	font-size: 1.7rem;
-	text-align: center;
-	padding-left: 30px;
-	padding-right: 30px;
+  font-size: 1.7rem;
+  text-align: center;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 p {
-	font-size: 1.2rem;
-	padding-top: 10px;
+  font-size: 1.2rem;
+  padding-top: 10px;
 }
 
 /* to set the size of the main content, and so set the footer to the bottom of each page */
 .mainSize {
-	min-height: calc(100vh - 180px);
+  min-height: calc(100vh - 180px);
 }
 
 /***
 NAV
 ***/
 .icon {
-	height: 2rem;
-	margin-right: 2rem;
+  height: 2rem;
+  margin-right: 2rem;
 }
 
 /***
 HEADER
 ***/
 .Header {
-	background-image: url('./img/fox_header.jpg');
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-color: grey;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-shadow: 0 0 5px rgb(50, 50, 50);
-	box-shadow: 0 0 5px rgb(50, 50, 50);
-	text-align: center;
-	color: whitesmoke;
+  background-image: url('./img/fox_header.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: grey;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 0 0 5px rgb(50, 50, 50);
+  box-shadow: 0 0 5px rgb(50, 50, 50);
+  text-align: center;
+  color: whitesmoke;
 }
 
 /***
 CATEGORY CARDS 
 ***/
 #categoryCards {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
 }
 
 #responsiveCards {
-	max-width: 450px;
-	margin: 10px;
+  max-width: 450px;
+  margin: 10px;
 }
 
 #mediaCards {
-	height: 300px;
+  height: 300px;
 }
 
 @media only screen and (max-width: 768px) {
-	#categoryCards {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
+  #categoryCards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media only screen and (max-width: 320px) {
-	#responsiveCards {
-		max-width: 270px;
-	}
-	#mediaCards {
-		height: 230px;
-	}
+  #responsiveCards {
+    max-width: 270px;
+  }
+  #mediaCards {
+    height: 230px;
+  }
 }
 
 /***
 FOOTER
 ***/
 .Footer-H4 {
-	color: black;
-	font-size: 1.3rem;
-	margin: 0;
-	padding: 0;
+  color: black;
+  font-size: 1.3rem;
+  margin: 0;
+  padding: 0;
 }
 
 .MyFooter {
-	display: flex;
-	justify-content: space-around;
-	flex-direction: row;
-	align-items: center;
-	text-align: center;
-	background-color: burlywood;
-	box-shadow: 0 0 3px rgb(50, 50, 50);
-	height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  background-color: burlywood;
+  box-shadow: 0 0 3px rgb(50, 50, 50);
+  height: 10vh;
 }
 
 .MyFooterRaphael {
-	height: 40px;
+  height: 40px;
 }
 
 .MyFooterCamille {
-	height: 40px;
+  height: 40px;
 }
 
 .MyFooterLaura {
-	height: 40px;
+  height: 40px;
 }
 
 .MyFooterQuizFox {
-	height: 40px;
+  height: 40px;
 }
 @media only screen and (max-width: 1024px) {
-	.MyFooter {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		height: 230px;
-	}
-	.MyFooter p {
-		margin: 10px;
-	}
+  .MyFooter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 230px;
+  }
+  .MyFooter p {
+    margin: 10px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
-	.MyFooter {
-		height: 210px;
-	}
-	.MyFooter p {
-		font-size: 1rem;
-	}
+  .MyFooter {
+    height: 210px;
+  }
+  .MyFooter p {
+    font-size: 1rem;
+  }
+}
+
+/***
+FOOTER2
+***/
+
+.MyFooter2 {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  background-color: burlywood;
+  box-shadow: 0 0 3px rgb(50, 50, 50);
+  height: 10vh;
+}
+
+@media only screen and (max-width: 1024px) {
+  .MyFooter2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 230px;
+  }
+  .MyFooter2 p {
+    margin: 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .MyFooter2 {
+    height: 210px;
+  }
+  .MyFooter2 p {
+    font-size: 1rem;
+  }
 }
