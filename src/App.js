@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import "./App.css";
-import { MuiThemeProvider } from "@material-ui/core/styles";
-import MyTheme from "./Theme";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Home from "./pages/Home";
-import Category from "./pages/Category";
-import AboutUs from "./pages/AboutUs";
-import Quiz from "./pages/Quiz";
-import NoPage from "./pages/NoPage";
+import React, { Component } from 'react';
+import './App.css';
+import { MuiThemeProvider } from '@material-ui/core/styles';
+import MyTheme from './Theme';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Home from './pages/Home';
+import Category from './pages/Category';
+import AboutUs from './pages/AboutUs';
+import Quiz from './pages/Quiz';
+import NoPage from './pages/NoPage';
 
 class App extends Component {
   render() {
@@ -21,7 +21,7 @@ class App extends Component {
               {/* add 2 dynamique parameters inside the path so that the Quiz component can get them */}
               <Route path="/quiz/:category/:difficulty" component={Quiz} />
               <Route path="/about-us" component={AboutUs} />
-              <Route path="/404" component={NoPage} />
+              <Route component={NoPage} />
             </Switch>
           </div>
         </MuiThemeProvider>
