@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import DisplayQuestion from '../components/DisplayQuestion';
-import Navbar2 from '../components/globalComponents/Navbar2';
-import Footer from '../components/globalComponents/Footer';
-import DisplayResult from '../components/DisplayResult';
+import React, { Component } from "react";
+import DisplayQuestion from "../components/DisplayQuestion";
+import Navbar2 from "../components/globalComponents/Navbar2";
+import Footer from "../components/globalComponents/Footer";
+import DisplayResult from "../components/DisplayResult";
 
 class Quiz extends Component {
   constructor(props) {
@@ -14,14 +14,14 @@ class Quiz extends Component {
       category,
       difficulty,
       amount: 10,
-      type: 'multiple',
+      type: "multiple",
       listQuiz: [],
       //currentQuizNo is our index so it start from 0
       currentQuizNo: 0,
       score: 0,
       //Default color for the buttons + update color when click correct/incorrect
-      incorrectButton: '',
-      correctButton: ''
+      incorrectButton: "",
+      correctButton: ""
     };
     this.nextQuizOnClick = this.nextQuizOnClick.bind(this);
     this.scoreUpdateOnClick = this.scoreUpdateOnClick.bind(this);
@@ -31,14 +31,14 @@ class Quiz extends Component {
   //function to update counter if right answer is clicked
   scoreUpdateOnClick(e, key) {
     if (key === 0) {
-      this.setState({ score: this.state.score + 1 });
+      this.setState({ score: this.state.score + 10 });
     } else {
       this.setState({ score: this.state.score });
     }
   }
   //function to update color when clicked
   colorUpdateOnClick() {
-    this.setState({ correctButton: 'green', incorrectButton: 'red' });
+    this.setState({ correctButton: "green", incorrectButton: "red" });
   }
 
   //function to increment the CurrentQuiz number to be able to go to next question
@@ -46,17 +46,18 @@ class Quiz extends Component {
   nextQuizOnClick() {
     this.setState({
       currentQuizNo: this.state.currentQuizNo + 1,
-      correctButton: '',
-      incorrectButton: ''
+      correctButton: "",
+      incorrectButton: ""
     });
   }
 
   componentDidMount() {
-    console.log('[Quiz] componentDidMount');
+    console.log("[Quiz] componentDidMount");
     // ex: https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple
-    const url = `https://opentdb.com/api.php?amount=${this.state.amount}&category=${
+    let url = `https://opentdb.com/api.php?amount=${this.state.amount}&category=${
       this.state.category
     }&difficulty=${this.state.difficulty}&type=${this.state.type}`;
+
     //fetch: make a request to the server to get the info we are looking for based on the Query Parameters we defined
     fetch(url)
       // then: receive the info (response) and transform it into json format

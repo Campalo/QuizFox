@@ -1,10 +1,10 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import 'tachyons';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import "tachyons";
 
 const styles = {
   root: {
@@ -38,9 +38,6 @@ function Navbar2(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             <NavLink activeClassName="active" exact to="/categories">
               Play
-            </NavLink>
-            <NavLink activeClassName="active" exact to="/categories">
-              Home
             </NavLink>
           </Typography>
           <Typography variant="h6" color="inherit" className={classes.grow}>
