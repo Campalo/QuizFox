@@ -14,11 +14,11 @@ import 'tachyons';
 
 const styles = {
   card: {
-    maxWidth: 300,
+    maxWidth: 300
   },
   media: {
-    height: 200,
-  },
+    height: 200
+  }
 };
 
 function AboutUs(props) {
@@ -231,7 +231,7 @@ function AboutUs(props) {
 }
 
 AboutUs.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(AboutUs);
