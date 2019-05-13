@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
+import 'tachyons';
 
 const styles = {
   root: {
@@ -24,14 +25,24 @@ function Navbar2(props) {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
-          <img
-            className="icon"
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Creative-Tail-Animal-fox.svg/128px-Creative-Tail-Animal-fox.svg.png"
-            alt="fox"
-          />
+          <Typography variant="h6" color="inherit" className={classes.grow}>
+featureNavbar
+            <NavLink activeClassName="active" exact to="/">
+              <img
+                className="grow h2"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Creative-Tail-Animal-fox.svg/128px-Creative-Tail-Animal-fox.svg.png"
+                alt="fox"
+              />
+            </NavLink>
+          </Typography>
+
           <Typography variant="h6" color="inherit" className={classes.grow}>
             <NavLink activeClassName="active" exact to="/categories">
+              Play
+
+            <NavLink activeClassName="active" exact to="/categories">
               Home
+
             </NavLink>
           </Typography>
           <Typography variant="h6" color="inherit" className={classes.grow}>
@@ -47,28 +58,3 @@ function Navbar2(props) {
 }
 
 export default withStyles(styles)(Navbar2);
-
-// class Navbar2 extends Component {
-// 	render() {
-// 		return (
-// 			<div className={classes.root}>
-// 				<nav>
-// 					<ul>
-// 						<li>
-// 							<NavLink activeClassName="active" exact to="/Home">
-// 								Home
-// 							</NavLink>
-// 						</li>
-// 						<li>
-// 							<NavLink activeClassName="active" to="/about-us">
-// 								About Us
-// 							</NavLink>
-// 						</li>
-// 					</ul>
-// 				</nav>
-// 			</div>
-// 		);
-// 	}
-// }
-
-// export default Navbar2;
