@@ -25,7 +25,7 @@ class Home extends Component {
           <h1>Eager to play QuizFox?</h1>
           <h3>Choose a category and a level of difficulty to start!</h3>
 
-          <section id="categoryCards">
+          <section className="flexCards">
             <CategoryCard
               category={this.state.categoryList[0]}
               name={this.state.categoryName[0]}

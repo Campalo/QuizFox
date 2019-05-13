@@ -8,7 +8,7 @@ function Header() {
     <header className="Header">
       {/* background image in css file */}
       <h1>Welcome to QuizFox</h1>
-      <h3>A Trivial Pursuit-like game created during a React bootcamp</h3>
+      <h3>A Trivial Pursuit-like game created during a 4 months React bootcamp</h3>
       <MyButton>
         <NavLink to="/categories">Play Now</NavLink>
       </MyButton>
