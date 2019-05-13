@@ -1,7 +1,7 @@
-import React from "react";
-import "../App.css";
-import MyButton from "./Button";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import '../App.css';
+import MyButton from './Button';
+import { NavLink } from 'react-router-dom';
 
 function Header() {
   return (
