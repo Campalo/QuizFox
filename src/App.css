@@ -98,6 +98,13 @@ CATEGORY CARDS
 DISPLAYQUESTION
 ***/
 
+.green {
+  background: green;
+}
+.red {
+  background: red;
+}
+
 /***
 FOOTER
 ***/
