@@ -26,6 +26,7 @@ function Navbar2(props) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" color="inherit" className={classes.grow}>
+featureNavbar
             <NavLink activeClassName="active" exact to="/">
               <img
                 className="grow h2"
@@ -38,6 +39,10 @@ function Navbar2(props) {
           <Typography variant="h6" color="inherit" className={classes.grow}>
             <NavLink activeClassName="active" exact to="/categories">
               Play
+
+            <NavLink activeClassName="active" exact to="/categories">
+              Home
+
             </NavLink>
           </Typography>
           <Typography variant="h6" color="inherit" className={classes.grow}>
