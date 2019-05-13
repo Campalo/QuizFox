@@ -9,20 +9,20 @@ class AboutUs extends Component {
     this.state = {
       memberName: ['Laura Sochaczewski', 'Camille Charteau', 'Raphael Lautenbacher'],
       memberPhoto: [
-        'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-        'https://images.unsplash.com/photo-1535136029863-4a3e36ab2dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1331&q=80',
-        'https://images.unsplash.com/photo-1488375634201-b85b28653a79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=973&q=80'
+        'https://media.licdn.com/dms/image/C5103AQGVdibzE2KuZw/profile-displayphoto-shrink_800_800/0?e=1563408000&v=beta&t=wJvZiEMFfL8tvn8XlgeMwNuFFLfhMA5J_m5PDe-hGys',
+        'https://media.licdn.com/dms/image/C4E03AQFU4bvO5nyT_Q/profile-displayphoto-shrink_200_200/0?e=1563408000&v=beta&t=yhmK_baJxPNAI1VAKRiVTLhgU9hf5cSCodSDwTPwcOQ',
+        'https://drive.google.com/uc?id=1RPS8iypYQMKidFsdtxPlSmQ3RJrefEcr'
       ],
       memberBio: ['bla', 'bla', 'bla'],
       memberGithub: [
         'https://github.com/laura-mso',
-        'https://github.com/laura-mso',
-        'https://github.com/laura-mso'
+        'https://github.com/Campalo',
+        'https://github.com/Datingel'
       ],
       memberLinkedin: [
-        'https://github.com/laura-mso',
-        'https://github.com/laura-mso',
-        'https://github.com/laura-mso'
+        'https://www.linkedin.com/in/laura-sochaczewski-70863b121/',
+        'https://www.linkedin.com/in/camille-charteau/',
+        'https://www.linkedin.com/in/raphael-lautenbacher-4940a6171/'
       ]
       // TO DO : CREATE AN OBJECT WITH 3 MEMBERS AND ALL THERE INFO INSIDE, INSTEAD OF MULTIPLE ARRAYS
     };

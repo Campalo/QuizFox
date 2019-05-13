@@ -77,12 +77,29 @@ CATEGORY CARDS and ABOUT CARDS
   height: 300px;
 }
 
+#AboutUs {
+  background-image: url('./img/fox_header.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(189, 163, 114);
+}
+
+#icons {
+  display: flex;
+  justify-content: center;
+  width: 300px;
+}
+
 @media only screen and (max-width: 768px) {
   .flexCards {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+  #icons {
+    width: 450px;
   }
 }
 
@@ -93,21 +110,9 @@ CATEGORY CARDS and ABOUT CARDS
   .mediaCards {
     height: 230px;
   }
-}
-
-/***
-AboutUs background
-***/
-#AboutUs {
-  background-image: url('./img/fox_header.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: rgb(189, 163, 114);
-}
-
-#cardOpacity {
-  opacity: 0.8;
+  #icons {
+    width: 300px;
+  }
 }
 
 /***
