@@ -8,15 +8,15 @@ import 'tachyons';
 
 const styles = {
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   grow: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20,
-  },
+    marginRight: 20
+  }
 };
 
 function Navbar2(props) {
@@ -26,7 +26,6 @@ function Navbar2(props) {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-featureNavbar
             <NavLink activeClassName="active" exact to="/">
               <img
                 className="grow h2"
@@ -39,10 +38,9 @@ featureNavbar
           <Typography variant="h6" color="inherit" className={classes.grow}>
             <NavLink activeClassName="active" exact to="/categories">
               Play
-
+            </NavLink>
             <NavLink activeClassName="active" exact to="/categories">
               Home
-
             </NavLink>
           </Typography>
           <Typography variant="h6" color="inherit" className={classes.grow}>

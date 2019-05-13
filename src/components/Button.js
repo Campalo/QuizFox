@@ -4,10 +4,10 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = () => ({
   button: {
-    margin: 50,
-    padding: 10,
-    width: 180,
-    fontSize: 20
+    margin: 5,
+    padding: 5,
+    width: 190,
+    fontSize: 15
   }
 });
 
