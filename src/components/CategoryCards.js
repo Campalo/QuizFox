@@ -11,9 +11,9 @@ import MyButton from './Button';
 
 function CategoryCard({ category, name, photo }) {
   return (
-    <Card id="responsiveCards">
+    <Card className="responsiveCards">
       <CardActionArea>
-        <CardMedia id="mediaCards" image={photo} title={name} />
+        <CardMedia className="mediaCards" image={photo} title={name} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2" color="primary">
             {name}

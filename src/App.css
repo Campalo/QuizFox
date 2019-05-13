@@ -26,7 +26,8 @@ p {
 
 /* to set the size of the main content, and so set the footer to the bottom of each page */
 .mainSize {
-  min-height: calc(100vh - 180px);
+  min-height: calc(100vh - 500px);
+  background-color: rgb(245, 237, 227);
 }
 
 /***
@@ -45,39 +46,39 @@ HEADER
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: grey;
+  background-color: rgb(189, 163, 114);
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-shadow: 0 0 5px rgb(50, 50, 50);
-  box-shadow: 0 0 5px rgb(50, 50, 50);
   text-align: center;
   color: whitesmoke;
 }
 
 /***
-CATEGORY CARDS 
+CATEGORY CARDS and ABOUT CARDS
 ***/
-#categoryCards {
+.flexCards {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 30px;
 }
 
-#responsiveCards {
+.responsiveCards {
   max-width: 450px;
+  min-width: 300px;
   margin: 10px;
 }
 
-#mediaCards {
+.mediaCards {
   height: 300px;
 }
 
 @media only screen and (max-width: 768px) {
-  #categoryCards {
+  .flexCards {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -86,12 +87,27 @@ CATEGORY CARDS
 }
 
 @media only screen and (max-width: 320px) {
-  #responsiveCards {
+  .responsiveCards {
     max-width: 270px;
   }
-  #mediaCards {
+  .mediaCards {
     height: 230px;
   }
+}
+
+/***
+AboutUs background
+***/
+#AboutUs {
+  background-image: url('./img/fox_header.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(189, 163, 114);
+}
+
+#cardOpacity {
+  opacity: 0.8;
 }
 
 /***
@@ -99,10 +115,10 @@ DISPLAYQUESTION
 ***/
 
 .green {
-  background: green;
+  background: rgb(65, 206, 65);
 }
 .red {
-  background: red;
+  background: rgb(238, 99, 99);
 }
 
 /***
@@ -158,13 +174,10 @@ FOOTER
 }
 
 /***
-FOOTER2
+FOOTER FOR ABOUT PAGE
 ***/
 
 .MyFooter2 {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 100%;
   color: white;
   text-align: center;
@@ -194,7 +207,9 @@ FOOTER2
     font-size: 1rem;
   }
 }
-/*** Page 404 ***/
+/*** 
+Page 404 
+***/
 
 .noPage {
   height: 50vh;
@@ -206,49 +221,4 @@ FOOTER2
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-/***
-AboutUs
-***/
-
-#AboutUs {
-  background-image: url('./img/fox_header.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: grey;
-  height: 85vh;
-  display: flex;
-  text-align: center;
-  color: whitesmoke;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.AboutUsCards {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  opacity: 0.9;
-}
-
-@media only screen and (max-width: 768px) {
-  .AboutUsCards {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  .AboutUsCards {
-    max-width: 270px;
-  }
-  .AboutUsCards {
-    height: 150px;
-  }
 }

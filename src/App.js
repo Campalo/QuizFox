@@ -8,6 +8,7 @@ import Category from './pages/Category';
 import AboutUs from './pages/AboutUs';
 import Quiz from './pages/Quiz';
 import NoPage from './pages/NoPage';
+import AboutUs2 from './pages/AboutUs2';
 
 class App extends Component {
   render() {
@@ -20,7 +21,7 @@ class App extends Component {
               <Route path="/categories" component={Category} />
               {/* add 2 dynamique parameters inside the path so that the Quiz component can get them */}
               <Route path="/quiz/:category/:difficulty" component={Quiz} />
-              <Route path="/about-us" component={AboutUs} />
+              <Route path="/about-us" component={AboutUs2} />
               <Route component={NoPage} />
             </Switch>
           </div>
