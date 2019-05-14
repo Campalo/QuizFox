@@ -19,6 +19,10 @@ const styles = theme => ({
     margin: 8
   },
 
+  iconSize: {
+    fontSize: 50
+  },
+
   expand: {
     transform: "rotate(0deg)",
     marginLeft: "auto",
@@ -27,7 +31,7 @@ const styles = theme => ({
     })
   },
   expandOpen: {
-    transform: "rotate(90deg)"
+    transform: "rotate(145deg)"
   }
 });
 
@@ -44,8 +48,13 @@ class DifficultyDrawer extends Component {
     return (
       <div>
         <CardActions className={classes.actions} disableActionSpacing>
-          <Typography className={classes.cardDifficulty} component="h2" color="secondary">
-            Choose your difficulty wisely: <span>&#128071;&#127995;</span>
+          <Typography
+            onClick={this.handleExpandClick}
+            className={classes.cardDifficulty}
+            component="h2"
+            color="secondary"
+          >
+            Choose your difficulty wisely:
           </Typography>
           <IconButton
             className={classnames(classes.expand, {
@@ -55,10 +64,12 @@ class DifficultyDrawer extends Component {
             aria-expanded={this.state.expanded}
             aria-label="Show more"
           >
-            <ExpandMoreIcon />
+            <span className={classes.iconSize} role="img">
+              &#128071;&#127995;
+            </span>
           </IconButton>
         </CardActions>
-        <Collapse className="flexCards" in={this.state.expanded} timeout="auto" unmountOnExit>
+        <Collapse className="flexAnswers" in={this.state.expanded} timeout="auto" unmountOnExit>
           <CardContent>
             <MyButton>
               <NavLink to={"/quiz/" + this.props.category + "/easy"}>Easy</NavLink>
