@@ -120,12 +120,34 @@ DISPLAYQUESTION
 ***/
 
 .green {
-  background: rgb(65, 206, 65);
+  background: rgb(170, 240, 170);
+  color: white;
 }
 .red {
-  background: rgb(238, 99, 99);
+  background: rgb(240, 182, 182);
 }
 
+.quizBtn {
+  padding: 20px;
+  margin: 20px;
+}
+
+.flexQuizBtn {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  padding: 60px;
+}
+
+.flexQuizBtn p {
+  margin: 5px;
+  color: rgb(121, 85, 72);
+}
+
+.flexQuizBtn button {
+  padding: 10px;
+}
 /***
 FOOTER
 ***/
