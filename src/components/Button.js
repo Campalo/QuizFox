@@ -1,12 +1,12 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+import React from "react";
+import Button from "@material-ui/core/Button";
+import { withStyles } from "@material-ui/core/styles";
 
 const styles = () => ({
   button: {
-    margin: 5,
-    padding: 5,
-    width: 190,
+    margin: 10,
+    padding: 10,
+    maxWidth: 95,
     fontSize: 15
   }
 });
