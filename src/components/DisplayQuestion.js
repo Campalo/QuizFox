@@ -43,7 +43,7 @@ const DisplayQuestion = ({
     }
     return finalList;
   }
-
+  console.log('answser', currentQuiz.correct_answer);
   return (
     <div className="flexQuiz">
       <h2> Quiz time </h2>
