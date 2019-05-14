@@ -1,21 +1,19 @@
-import React from 'react';
+import React from "react";
 
-const DisplayResult = ({ score, amount }) => {
-  let congrats = '';
+const DisplayResult = ({ score }) => {
+  let congrats = "";
   if (score <= 5) {
-    congrats = 'Almost there, try again to improve your Skill!💡';
+    congrats = "Almost there, try again to improve your Skill!💡";
   } else if (score <= 8) {
-    congrats = 'Nice try, almost perfect!🤓';
+    congrats = "Nice try, almost perfect!🤓";
   } else if (score <= 10) {
-    congrats = 'Amazing, smart Fox!🦊';
+    congrats = "Amazing, smart Fox!🦊";
   } else {
-    congrats = 'Something went wrong little Hacker 😉';
+    congrats = "Something went wrong little Hacker 😉";
   }
   return (
     <div>
-      <h2>
-        {score} points on {amount}
-      </h2>
+      <h2>{score} points of 100</h2>
       <h3>{congrats}</h3>
     </div>
   );
