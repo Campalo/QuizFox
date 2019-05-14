@@ -21,8 +21,8 @@ class Quiz extends Component {
       currentQuizNo: 0,
       score: 0,
       //Default color for the buttons + update color when click correct/incorrect
-      incorrectButton: '',
-      correctButton: ''
+      incorrectButton: 'brown',
+      correctButton: 'brown'
     };
     this.nextQuizOnClick = this.nextQuizOnClick.bind(this);
     this.scoreUpdateOnClick = this.scoreUpdateOnClick.bind(this);
