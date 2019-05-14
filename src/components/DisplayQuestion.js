@@ -55,7 +55,9 @@ const DisplayQuestion = ({
       <p>
         Question {currentQuizNo + 1} on {amount}
       </p>
-      <p>Score: {score}/100</p>
+      <p>
+        Score: {score}/{amount * 10}
+      </p>
       {/* The onClick event works only inside a HTML tag not inside a component ex: "MyButton"
       If the onClick event is written as an arrow function then there is no need to bind it */}
       <button onClick={nextQuizOnClick}>Next Question</button>
