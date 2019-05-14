@@ -20,7 +20,7 @@ const styles = theme => ({
   },
 
   iconSize: {
-    fontSize: 50
+    fontSize: 40
   },
 
   expand: {
