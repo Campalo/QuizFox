@@ -39,7 +39,7 @@ class Quiz extends Component {
   }
   //function to update color when clicked
   colorUpdateOnClick() {
-    this.setState({ correctButton: 'green', incorrectButton: 'blue' });
+    this.setState({ correctButton: 'green', incorrectButton: 'red' });
   }
 
   //function to increment the CurrentQuiz number to be able to go to next question
@@ -47,8 +47,8 @@ class Quiz extends Component {
   nextQuizOnClick() {
     this.setState({
       currentQuizNo: this.state.currentQuizNo + 1,
-      correctButton: '',
-      incorrectButton: ''
+      correctButton: 'brown',
+      incorrectButton: 'brown'
     });
   }
 

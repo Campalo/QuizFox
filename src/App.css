@@ -121,18 +121,20 @@ DISPLAYQUESTION
 
 .green {
   background: rgb(170, 240, 170);
-  color: white;
 }
 .red {
   background: rgb(240, 182, 182);
 }
 
-.quizBtn {
-  padding: 20px;
-  margin: 20px;
+.brown {
+  background-color: rgb(121, 85, 72);
 }
 
-.flexQuizBtn {
+.orange {
+  background-color: rgb(255, 152, 0);
+}
+
+.flexQuiz {
   display: flex;
   flex-direction: column;
   justify-items: center;
@@ -140,14 +142,29 @@ DISPLAYQUESTION
   padding: 60px;
 }
 
-.flexQuizBtn p {
+.flexQuiz p {
   margin: 5px;
   color: rgb(121, 85, 72);
 }
 
-.flexQuizBtn button {
-  padding: 10px;
+.flexQuiz button {
+  padding: 12px;
+  margin: 10px;
+  font-size: 15px;
+  color: whitesmoke;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 8px 15px rgba(50, 50, 50, 0.6);
+  text-transform: uppercase;
+  transition: all 0.3s ease 0s;
 }
+
+/* .flexQuizBtn button:hover {
+  background-color: #2ee59d;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+} */
 /***
 FOOTER
 ***/

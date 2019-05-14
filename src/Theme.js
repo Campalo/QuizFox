@@ -3,7 +3,12 @@ import orange from '@material-ui/core/colors/orange';
 import brown from '@material-ui/core/colors/brown';
 
 // brown (121,85,72)
-// organce (255,152,0)
+// light (239, 235, 233)
+// dark (78, 52, 46)
+
+// orange (255,152,0)
+// light (255, 243, 224)
+// dark (	239, 108, 0)
 
 const light = 50;
 const main = 500;
