@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import CategoryCard from '../components/CategoryCards';
-import Navbar2 from '../components/globalComponents/Navbar2';
-import Footer from '../components/globalComponents/Footer';
+import React, { Component } from "react";
+import CategoryCard from "../components/CategoryCards";
+import Navbar2 from "../components/globalComponents/Navbar2";
+import Footer from "../components/globalComponents/Footer";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
       categoryList: [17, 18, 22],
-      categoryName: ['Nature', 'Computer', 'Geography'],
+      categoryName: ["Nature", "Computer", "Geography"],
       categoryPhoto: [
-        'https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
-        'https://images.unsplash.com/photo-1535136029863-4a3e36ab2dc8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1331&q=80',
-        'https://images.unsplash.com/photo-1488375634201-b85b28653a79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=973&q=80'
+        "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80",
+        "https://images.unsplash.com/photo-1547658718-1cdaa0852790?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1488375634201-b85b28653a79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=973&q=80"
       ]
     };
   }
