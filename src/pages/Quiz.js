@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import DisplayQuestion from "../components/DisplayQuestion";
-import Navbar2 from "../components/globalComponents/Navbar2";
-import Footer from "../components/globalComponents/Footer";
-import DisplayResult from "../components/DisplayResult";
+import React, { Component } from 'react';
+import DisplayQuestion from '../components/DisplayQuestion';
+import Navbar2 from '../components/globalComponents/Navbar2';
+import Footer from '../components/globalComponents/Footer';
+import DisplayResult from '../components/DisplayResult';
 
 class Quiz extends Component {
   constructor(props) {
@@ -14,14 +14,15 @@ class Quiz extends Component {
       category,
       difficulty,
       amount: 10,
-      type: "multiple",
+      type: 'multiple',
       listQuiz: [],
       //currentQuizNo is our index so it start from 0
       currentQuizNo: 0,
       score: 0,
       //Default color for the buttons + update color when click correct/incorrect
-      incorrectButton: "",
-      correctButton: ""
+      incorrectButton: '',
+      correctButton: '',
+      clicked: false
     };
     this.nextQuizOnClick = this.nextQuizOnClick.bind(this);
     this.scoreUpdateOnClick = this.scoreUpdateOnClick.bind(this);
@@ -30,6 +31,7 @@ class Quiz extends Component {
 
   //function to update counter if right answer is clicked
   scoreUpdateOnClick(e, key) {
+    if (this.state.clicked) return;
     if (key === 0) {
       this.setState({ score: this.state.score + 10 });
     } else {
@@ -38,7 +40,8 @@ class Quiz extends Component {
   }
   //function to update color when clicked
   colorUpdateOnClick() {
-    this.setState({ correctButton: "green", incorrectButton: "red" });
+    this.setState({ correctButton: 'green', incorrectButton: 'red' });
+    this.setState({ clicked: true });
   }
 
   //function to increment the CurrentQuiz number to be able to go to next question
@@ -46,13 +49,14 @@ class Quiz extends Component {
   nextQuizOnClick() {
     this.setState({
       currentQuizNo: this.state.currentQuizNo + 1,
-      correctButton: "",
-      incorrectButton: ""
+      correctButton: '',
+      incorrectButton: '',
+      clicked: false
     });
   }
 
   componentDidMount() {
-    console.log("[Quiz] componentDidMount");
+    console.log('[Quiz] componentDidMount');
     // ex: https://opentdb.com/api.php?amount=10&category=18&difficulty=medium&type=multiple
     let url = `https://opentdb.com/api.php?amount=${this.state.amount}&category=${
       this.state.category
@@ -90,6 +94,7 @@ class Quiz extends Component {
           incorrectButton={this.state.incorrectButton}
           scoreUpdateOnClick={this.scoreUpdateOnClick}
           score={this.state.score}
+          clicked={this.state.clicked}
         />
       ) : (
         <DisplayResult score={this.state.score} amount={this.state.amount} />
