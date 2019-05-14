@@ -11,10 +11,13 @@ const styles = () => ({
   }
 });
 
-function MyButton(props) {
-  const { classes, children } = props;
+function MyButton({ classes, children, nextQuizOnClick }) {
   return (
-    <Button variant="contained" color="primary" className={classes.button}>
+    <Button
+      onClick={nextQuizOnClick}
+      variant="contained"
+      color="primary"
+      className={classes.button}>
       <b>{children}</b>
     </Button>
   );

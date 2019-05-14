@@ -21,11 +21,10 @@ const DisplayQuestion = ({
 
   // push each item from answersList inside a button inside an array called finalList
   for (let i = 0; i < answersList.length; i++) {
-    const buttonColor = i === 0 ? correctButton : incorrectButton;
     finalList.push(
       <button
         key={i}
-        className={buttonColor}
+        className={i === 0 ? correctButton : incorrectButton}
         onClick={e => {
           scoreUpdateOnClick(e, i);
           colorUpdateOnClick();
@@ -42,25 +41,32 @@ const DisplayQuestion = ({
       const j = Math.floor(Math.random() * (i + 1));
       [finalList[i], finalList[j]] = [finalList[j], finalList[i]];
     }
-    console.log('shuffle time 2:', finalList);
     return finalList;
   }
-  console.log('shuffle time 3:', finalList);
 
   return (
-    <div>
+    <div className="flexQuiz">
       <h2> Quiz time </h2>
+      <span>
+        <b>
+          Score: {score}/{amount * 10}
+        </b>
+      </span>
       <h3>{htmlDecode(currentQuiz.question)}</h3>
-      <section>{answerClicked ? finalList : shuffle(finalList)}</section>
-      <p>
-        Question {currentQuizNo + 1} on {amount}
-      </p>
-      <p>
-        Score: {score}/{amount * 10}
-      </p>
-      {/* The onClick event works only inside a HTML tag not inside a component ex: "MyButton"
-      If the onClick event is written as an arrow function then there is no need to bind it */}
-      <button onClick={nextQuizOnClick}>Next Question</button>
+      <section className="flexAnswers">{answerClicked ? finalList : shuffle(finalList)}</section>
+      <div>
+        <p>
+          <i>
+            Question {currentQuizNo + 1} on {amount}
+          </i>
+        </p>
+        {/* The onClick event works only inside a HTML tag not inside a component ex: "MyButton"
+            If the onClick event is written as an arrow function then there is no need to bind it */}
+
+        <button className="orange" onClick={nextQuizOnClick}>
+          Next Question
+        </button>
+      </div>
     </div>
   );
 };

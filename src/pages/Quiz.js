@@ -3,6 +3,7 @@ import DisplayQuestion from '../components/DisplayQuestion';
 import Navbar2 from '../components/globalComponents/Navbar2';
 import Footer from '../components/globalComponents/Footer';
 import DisplayResult from '../components/DisplayResult';
+import '../App.css';
 
 class Quiz extends Component {
   constructor(props) {
@@ -20,8 +21,8 @@ class Quiz extends Component {
       currentQuizNo: 0,
       score: 0,
       //Default color for the buttons + update color when click correct/incorrect
-      incorrectButton: '',
-      correctButton: '',
+      incorrectButton: 'brown',
+      correctButton: 'brown',
       answerClicked: false
     };
     this.nextQuizOnClick = this.nextQuizOnClick.bind(this);
@@ -49,8 +50,8 @@ class Quiz extends Component {
   nextQuizOnClick() {
     this.setState({
       currentQuizNo: this.state.currentQuizNo + 1,
-      correctButton: '',
-      incorrectButton: '',
+      correctButton: 'brown',
+      incorrectButton: 'brown',
       answerClicked: false
     });
   }
