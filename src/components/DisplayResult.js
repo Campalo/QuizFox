@@ -14,7 +14,7 @@ const DisplayResult = ({ score, amount }) => {
   return (
     <div>
       <h2>
-        {score} points of {amount * 100}
+        {score} points of {amount * 10}
       </h2>
       <h3>{congrats}</h3>
     </div>

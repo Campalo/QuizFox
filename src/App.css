@@ -26,7 +26,7 @@ p {
 
 /* to set the size of the main content, and so set the footer to the bottom of each page */
 .mainSize {
-  min-height: calc(100vh - 500px);
+  min-height: calc(100vh - 180px);
   background-color: rgb(245, 237, 227);
 }
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import htmlDecode from './Utility';
-import MyButton from './Button';
 
 const DisplayQuestion = ({
   currentQuiz,
@@ -11,7 +10,8 @@ const DisplayQuestion = ({
   score,
   incorrectButton,
   correctButton,
-  colorUpdateOnClick
+  colorUpdateOnClick,
+  answerClicked
 }) => {
   let finalList = [];
 
@@ -53,15 +53,16 @@ const DisplayQuestion = ({
         </b>
       </span>
       <h3>{htmlDecode(currentQuiz.question)}</h3>
-      <section className="flexAnswers">{shuffle(finalList)}</section>
-      {/* The onClick event works only inside a HTML tag not inside a component ex: "MyButton"
-            If the onClick event is written as an arrow function then there is no need to bind it */}
+      <section className="flexAnswers">{answerClicked ? finalList : shuffle(finalList)}</section>
       <div>
         <p>
           <i>
             Question {currentQuizNo + 1} on {amount}
           </i>
         </p>
+        {/* The onClick event works only inside a HTML tag not inside a component ex: "MyButton"
+            If the onClick event is written as an arrow function then there is no need to bind it */}
+
         <button className="orange" onClick={nextQuizOnClick}>
           Next Question
         </button>
