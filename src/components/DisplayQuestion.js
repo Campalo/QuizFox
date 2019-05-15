@@ -8,6 +8,7 @@ class DisplayQuestion extends Component {
       orderList: []
     };
   }
+
   //shuffle the buttons to display the answers in a random order
   shuffle(finalList) {
     for (let i = finalList.length - 1; i > 0; i--) {
@@ -62,31 +63,47 @@ class DisplayQuestion extends Component {
       );
     }
 
-    let arrList = [];
+    // let arrList = [];
 
-    for (let i = 0; i < finalList.length; i++) {
-      arrList.push(<button key={this.state.orderList[i]}>{htmlDecode(finalList[i])}</button>);
-    }
-    //check if there is an orderList array
-    // if yes get back it's value
-    // if not shuffle
-    console.log('finalList:', finalList);
-    finalList.filter(value => {
-      console.log('key', value.key);
-    });
+    // for (let i = 0; i < finalList.length; i++) {
+    //   arrList.push(<button key={this.state.orderList[i]}>{htmlDecode(finalList[i])}</button>);
+
+    //   //check if there is an orderList array
+    //   // if yes get back it's value
+    //   // if not shuffle
+    //   console.log('finalList:', finalList);
+    //   finalList.filter(value => {
+    //     console.log('key', value.key);
+    //   });
+
+    //   return finalList;
+    // }
 
     return (
-      <div>
+      <div className="flexQuiz">
         <h2> Quiz time </h2>
+        <span>
+          <b>
+            Score: {this.props.score}/{this.props.amount * 10}
+          </b>
+        </span>
         <h3>{htmlDecode(this.props.currentQuiz.question)}</h3>
-        <section>{this.props.clicked ? finalList : this.shuffle(finalList)}</section>
-        <p>
-          Question {this.props.currentQuizNo + 1} on {this.props.amount}
-        </p>
-        <p>Score: {this.props.score}/100</p>
-        {/* The onClick event works only inside a HTML tag not inside a component ex: "MyButton"
-      If the onClick event is written as an arrow function then there is no need to bind it */}
-        <button onClick={this.props.nextQuizOnClick}>Next Question</button>
+        <section className="flexAnswers">
+          {this.props.answerClicked ? finalList : this.shuffle(finalList)}
+        </section>
+        <div>
+          <p>
+            <i>
+              Question {this.props.currentQuizNo + 1} on {this.props.amount}
+            </i>
+          </p>
+          {/* The onClick event works only inside a HTML tag not inside a component ex: "MyButton"
+            If the onClick event is written as an arrow function then there is no need to bind it */}
+
+          <button className="orange" onClick={this.props.nextQuizOnClick}>
+            Next Question
+          </button>
+        </div>
       </div>
     );
   }

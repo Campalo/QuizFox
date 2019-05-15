@@ -26,7 +26,7 @@ p {
 
 /* to set the size of the main content, and so set the footer to the bottom of each page */
 .mainSize {
-  min-height: calc(100vh - 500px);
+  min-height: calc(100vh - 180px);
   background-color: rgb(245, 237, 227);
 }
 
@@ -42,7 +42,7 @@ NAV
 HEADER
 ***/
 .Header {
-  background-image: url('./img/fox_header.jpg');
+  background-image: url("./img/fox_header.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -60,6 +60,7 @@ HEADER
 /***
 CATEGORY CARDS and ABOUT CARDS
 ***/
+
 .flexCards {
   display: flex;
   align-items: center;
@@ -78,7 +79,7 @@ CATEGORY CARDS and ABOUT CARDS
 }
 
 #AboutUs {
-  background-image: url('./img/fox_header.jpg');
+  background-image: url("./img/fox_header.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -116,14 +117,90 @@ CATEGORY CARDS and ABOUT CARDS
 }
 
 /***
-DISPLAYQUESTION
+DISPLAYQUESTION BUTTONS
 ***/
 
 .green {
-  background: rgb(65, 206, 65);
+  background: rgb(94, 235, 113);
 }
 .red {
-  background: rgb(238, 99, 99);
+  background: rgb(233, 111, 111);
+}
+
+.brown {
+  background-color: rgb(121, 85, 72);
+}
+
+.orange {
+  background-color: rgb(255, 152, 0);
+}
+
+.flexQuiz {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.flexQuiz h2 {
+  background-image: url('./img/fox_header.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 8vh;
+  width: 100%;
+  color: whitesmoke;
+  text-shadow: 0 0 5px rgb(50, 50, 50);
+}
+
+.flexQuiz h3 {
+  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: rgb(121, 85, 72);
+}
+
+.flexQuiz p {
+  margin: 5px;
+  color: rgb(255, 152, 0);
+  font-size: 1rem;
+}
+
+.flexQuiz span {
+  color: rgb(93, 178, 204);
+  border: 3px solid rgb(93, 178, 204);
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 12px;
+  margin: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  outline: none;
+}
+
+.flexAnswers {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.flexQuiz button,
+.flexAnswers button {
+  padding: 12px;
+  margin: 5px;
+  font-size: 15px;
+  font-weight: 700;
+  color: whitesmoke;
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 4px 7px rgba(50, 50, 50, 0.6);
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease 0s;
 }
 
 /***
@@ -219,7 +296,7 @@ Page 404
 .noPage {
   height: 50vh;
   width: auto;
-  background-image: url('https://media0.giphy.com/media/3o7btSlEkVbvtjkW3K/giphy.gif?cid=790b76115cd57e456837535777ad14af&rid=giphy.gif');
+  background-image: url("https://media0.giphy.com/media/3o7btSlEkVbvtjkW3K/giphy.gif?cid=790b76115cd57e456837535777ad14af&rid=giphy.gif");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

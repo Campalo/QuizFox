@@ -3,6 +3,7 @@ import DisplayQuestion from '../components/DisplayQuestion';
 import Navbar2 from '../components/globalComponents/Navbar2';
 import Footer from '../components/globalComponents/Footer';
 import DisplayResult from '../components/DisplayResult';
+import '../App.css';
 
 class Quiz extends Component {
   constructor(props) {
@@ -20,9 +21,9 @@ class Quiz extends Component {
       currentQuizNo: 0,
       score: 0,
       //Default color for the buttons + update color when click correct/incorrect
-      incorrectButton: '',
-      correctButton: '',
-      clicked: false
+      incorrectButton: 'brown',
+      correctButton: 'brown',
+      answerClicked: false
     };
     this.nextQuizOnClick = this.nextQuizOnClick.bind(this);
     this.scoreUpdateOnClick = this.scoreUpdateOnClick.bind(this);
@@ -31,7 +32,7 @@ class Quiz extends Component {
 
   //function to update counter if right answer is clicked
   scoreUpdateOnClick(e, key) {
-    if (this.state.clicked) return;
+    if (this.state.answerClicked) return;
     if (key === 0) {
       this.setState({ score: this.state.score + 10 });
     } else {
@@ -41,7 +42,7 @@ class Quiz extends Component {
   //function to update color when clicked
   colorUpdateOnClick() {
     this.setState({ correctButton: 'green', incorrectButton: 'red' });
-    this.setState({ clicked: true });
+    this.setState({ answerClicked: true });
   }
 
   //function to increment the CurrentQuiz number to be able to go to next question
@@ -49,9 +50,9 @@ class Quiz extends Component {
   nextQuizOnClick() {
     this.setState({
       currentQuizNo: this.state.currentQuizNo + 1,
-      correctButton: '',
-      incorrectButton: '',
-      clicked: false
+      correctButton: 'brown',
+      incorrectButton: 'brown',
+      answerClicked: false
     });
   }
 
@@ -94,7 +95,7 @@ class Quiz extends Component {
           incorrectButton={this.state.incorrectButton}
           scoreUpdateOnClick={this.scoreUpdateOnClick}
           score={this.state.score}
-          clicked={this.state.clicked}
+          answerClicked={this.state.answerClicked}
         />
       ) : (
         <DisplayResult score={this.state.score} amount={this.state.amount} />
