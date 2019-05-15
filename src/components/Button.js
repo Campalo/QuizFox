@@ -17,7 +17,8 @@ function MyButton({ classes, children, nextQuizOnClick }) {
       onClick={nextQuizOnClick}
       variant="contained"
       color="primary"
-      className={classes.button}>
+      className={classes.button}
+    >
       <b>{children}</b>
     </Button>
   );

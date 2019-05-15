@@ -1,6 +1,6 @@
-import { createMuiTheme } from '@material-ui/core/styles';
-import orange from '@material-ui/core/colors/orange';
-import brown from '@material-ui/core/colors/brown';
+import { createMuiTheme } from "@material-ui/core/styles";
+import orange from "@material-ui/core/colors/orange";
+import brown from "@material-ui/core/colors/brown";
 
 // brown (121,85,72)
 // light (239, 235, 233)
@@ -20,13 +20,20 @@ const MyTheme = createMuiTheme({
       light: orange[light],
       main: orange[main],
       dark: orange[dark],
-      contrastText: '#fff'
+      contrastText: "#fff"
     },
     secondary: {
       light: brown[light],
       main: brown[main],
       dark: brown[dark],
-      contrastText: '#000'
+      contrastText: "#000"
+    },
+    typography: {
+      fontFamily: '"Indie Flower", cursive',
+      fontSize: 14,
+      fontWeightLight: 300,
+      fontWeightRegular: 400,
+      fontWeightMedium: 500
     }
   }
 });
