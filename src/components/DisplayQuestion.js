@@ -96,7 +96,7 @@ class DisplayQuestion extends Component {
           </b>
         </span>
         <h3>{htmlDecode(this.props.currentQuiz.question)}</h3>
-        <section className="flexAnswers">
+        <section className="flexQuiz">
           {/* this function will return either finalList or orderedFinalList depending of the condition */}
           {this.shuffle(finalList)}
         </section>

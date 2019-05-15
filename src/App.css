@@ -156,8 +156,8 @@ DISPLAYQUESTION BUTTONS
 
 .flexQuiz h3 {
   margin: 0px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
   color: rgb(121, 85, 72);
 }
 
@@ -177,6 +177,12 @@ DISPLAYQUESTION BUTTONS
   font-size: 15px;
   cursor: pointer;
   outline: none;
+}
+
+.flexQuiz img {
+  margin-top: 20px;
+  box-shadow: 0 4px 7px rgba(50, 50, 50, 0.6);
+  border-radius: 50px;
 }
 
 .flexAnswers {
@@ -201,6 +207,10 @@ DISPLAYQUESTION BUTTONS
   cursor: pointer;
   outline: none;
   transition: all 0.3s ease 0s;
+}
+
+.flexQuiz button {
+  width: 100%;
 }
 
 /***
