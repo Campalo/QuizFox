@@ -209,6 +209,10 @@ DISPLAYQUESTION BUTTONS
   transition: all 0.3s ease 0s;
 }
 
+.flexQuiz button {
+  width: 100%;
+}
+
 /***
 FOOTER
 ***/
