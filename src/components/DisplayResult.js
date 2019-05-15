@@ -16,10 +16,13 @@ const DisplayResult = ({ score, amount }) => {
     congrats = "Something went wrong little Hacker 😉";
   }
   return (
-    <div className="flexAnswers">
-      <h2>
-        {score} points of {amount * 10}
-      </h2>
+    <div className="flexQuiz">
+      <h2>Trophy Time</h2>
+      <span>
+        <b>
+          Final score: {score} of {amount * 10}
+        </b>
+      </span>
       <h3>{congrats}</h3>
       <img src={gif} />
     </div>
