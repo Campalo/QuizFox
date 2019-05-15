@@ -7,7 +7,6 @@ import CardActions from "@material-ui/core/CardActions";
 import Collapse from "@material-ui/core/Collapse";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
-import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import "../App.css";
 import { NavLink } from "react-router-dom";
 import MyButton from "./../components/Button";
@@ -64,21 +63,36 @@ class DifficultyDrawer extends Component {
             aria-expanded={this.state.expanded}
             aria-label="Show more"
           >
-            <span className={classes.iconSize} role="img">
-              &#128071;&#127995;
+            <span className={classes.iconSize} role="img" aria-label="">
+              &#128071;&#127998;
             </span>
           </IconButton>
         </CardActions>
         <Collapse className="flexAnswers" in={this.state.expanded} timeout="auto" unmountOnExit>
           <CardContent>
             <MyButton>
-              <NavLink to={"/quiz/" + this.props.category + "/easy"}>Easy</NavLink>
+              <NavLink
+                style={{ textDecoration: "none", color: "black" }}
+                to={"/quiz/" + this.props.category + "/easy"}
+              >
+                Easy
+              </NavLink>
             </MyButton>
             <MyButton>
-              <NavLink to={"/quiz/" + this.props.category + "/medium"}>Medium</NavLink>
+              <NavLink
+                style={{ textDecoration: "none", color: "black" }}
+                to={"/quiz/" + this.props.category + "/medium"}
+              >
+                Medium
+              </NavLink>
             </MyButton>
             <MyButton>
-              <NavLink to={"/quiz/" + this.props.category + "/hard"}>Hard</NavLink>
+              <NavLink
+                style={{ textDecoration: "none", color: "black" }}
+                to={"/quiz/" + this.props.category + "/hard"}
+              >
+                Hard
+              </NavLink>
             </MyButton>
           </CardContent>
         </Collapse>

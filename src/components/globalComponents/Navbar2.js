@@ -36,12 +36,21 @@ function Navbar2(props) {
           </Typography>
 
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            <NavLink activeClassName="active" exact to="/categories">
+            <NavLink
+              style={{ textDecoration: "none", color: "black" }}
+              activeClassName="active"
+              exact
+              to="/categories"
+            >
               Play
             </NavLink>
           </Typography>
           <Typography variant="h6" color="inherit" className={classes.grow}>
-            <NavLink activeClassName="active" to="/about-us">
+            <NavLink
+              style={{ textDecoration: "none", color: "black" }}
+              activeClassName="active"
+              to="/about-us"
+            >
               About Us
             </NavLink>
           </Typography>
