@@ -5,62 +5,63 @@ class DisplayQuestion extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      //set default state for orderList : empty array
       orderList: []
     };
+    // create a property of the class component to access it everywhere inside this component
+    // better than a const that can be accessible only locally (scope)
+    this.updatedOrderList = [];
   }
 
   //shuffle the buttons to display the answers in a random order
   shuffle(finalList) {
+    // FLAG : both conditions must be true, then do:
+    const orderedFinalList = [];
+
+    if (this.props.answerClicked && this.state.orderList.length > 0) {
+      orderedFinalList[0] = finalList.filter(button => {
+        return button.key == this.state.orderList[0];
+      });
+      orderedFinalList[1] = finalList.filter(button => {
+        return button.key == this.state.orderList[1];
+      });
+      orderedFinalList[2] = finalList.filter(button => {
+        return button.key == this.state.orderList[2];
+      });
+      orderedFinalList[3] = finalList.filter(button => {
+        return button.key == this.state.orderList[3];
+      });
+      console.log('orderedFinalist', orderedFinalList[1]);
+
+      return orderedFinalList;
+    }
+    // else at least one condition is false, then do:
+
+    //shuffle business logic
     for (let i = finalList.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [finalList[i], finalList[j]] = [finalList[j], finalList[i]];
     }
-    // use map f to extract the key value and populate (push) a new array list with the keys (after the shuffle)
-    // array push
-    finalList.map(value => {
-      this.state.orderList.push(value.key);
-      console.log('orderList', this.state.orderList);
-    });
 
+    // update the orderList with value.keys from the button
+    this.updatedOrderList = finalList.map(button => {
+      console.log('button key', button.key);
+      return button.key;
+    });
+    console.log('updateed orders list', this.updatedOrderList);
+
+    // this.setState({ orderList: updatedOrderList });
+    // console.log('orderList', this.state.orderList);
     return finalList;
   }
-<<<<<<< HEAD
+  // update setState only when clicking the button
+  handlerOnClick(arrList) {
+    this.setState({ orderList: arrList });
+    console.log('setState', arrList);
+  }
 
   render() {
-    // let {
-    //   currentQuiz,
-    //   currentQuizNo,
-    //   amount,
-    //   nextQuizOnClick,
-    //   scoreUpdateOnClick,
-    //   score,
-    //   incorrectButton,
-    //   correctButton,
-    //   colorUpdateOnClick,
-    //   clicked
-    // } = this.props;
-=======
-  console.log('answser', currentQuiz.correct_answer);
-  return (
-    <div className="flexQuiz">
-      <h2> Quiz time </h2>
-      <span>
-        <b>
-          Score: {score}/{amount * 10}
-        </b>
-      </span>
-      <h3>{htmlDecode(currentQuiz.question)}</h3>
-      <section className="flexAnswers">{answerClicked ? finalList : shuffle(finalList)}</section>
-      <div>
-        <p>
-          <i>
-            Question {currentQuizNo + 1} on {amount}
-          </i>
-        </p>
-        {/* The onClick event works only inside a HTML tag not inside a component ex: "MyButton"
-            If the onClick event is written as an arrow function then there is no need to bind it */}
->>>>>>> 3cdf0c12a9d2119ae1abd8b57e7e2ec33782b4bc
-
+    console.log('render...');
     let finalList = [];
 
     // create an array called answersList and concat the 4 answers inside
@@ -79,27 +80,12 @@ class DisplayQuestion extends Component {
           onClick={e => {
             this.props.scoreUpdateOnClick(e, i);
             this.props.colorUpdateOnClick();
+            this.handlerOnClick(this.updatedOrderList);
           }}>
           {htmlDecode(answersList[i])}
         </button>
       );
     }
-
-    // let arrList = [];
-
-    // for (let i = 0; i < finalList.length; i++) {
-    //   arrList.push(<button key={this.state.orderList[i]}>{htmlDecode(finalList[i])}</button>);
-
-    //   //check if there is an orderList array
-    //   // if yes get back it's value
-    //   // if not shuffle
-    //   console.log('finalList:', finalList);
-    //   finalList.filter(value => {
-    //     console.log('key', value.key);
-    //   });
-
-    //   return finalList;
-    // }
 
     return (
       <div className="flexQuiz">
@@ -111,7 +97,8 @@ class DisplayQuestion extends Component {
         </span>
         <h3>{htmlDecode(this.props.currentQuiz.question)}</h3>
         <section className="flexAnswers">
-          {this.props.answerClicked ? finalList : this.shuffle(finalList)}
+          {/* this function will return either finalList or orderedFinalList depending of the condition */}
+          {this.shuffle(finalList)}
         </section>
         <div>
           <p>
@@ -121,7 +108,6 @@ class DisplayQuestion extends Component {
           </p>
           {/* The onClick event works only inside a HTML tag not inside a component ex: "MyButton"
             If the onClick event is written as an arrow function then there is no need to bind it */}
-
           <button className="orange" onClick={this.props.nextQuizOnClick}>
             Next Question
           </button>
