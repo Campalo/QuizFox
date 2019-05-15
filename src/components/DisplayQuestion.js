@@ -24,6 +24,7 @@ class DisplayQuestion extends Component {
 
     return finalList;
   }
+<<<<<<< HEAD
 
   render() {
     // let {
@@ -38,6 +39,27 @@ class DisplayQuestion extends Component {
     //   colorUpdateOnClick,
     //   clicked
     // } = this.props;
+=======
+  console.log('answser', currentQuiz.correct_answer);
+  return (
+    <div className="flexQuiz">
+      <h2> Quiz time </h2>
+      <span>
+        <b>
+          Score: {score}/{amount * 10}
+        </b>
+      </span>
+      <h3>{htmlDecode(currentQuiz.question)}</h3>
+      <section className="flexAnswers">{answerClicked ? finalList : shuffle(finalList)}</section>
+      <div>
+        <p>
+          <i>
+            Question {currentQuizNo + 1} on {amount}
+          </i>
+        </p>
+        {/* The onClick event works only inside a HTML tag not inside a component ex: "MyButton"
+            If the onClick event is written as an arrow function then there is no need to bind it */}
+>>>>>>> 3cdf0c12a9d2119ae1abd8b57e7e2ec33782b4bc
 
     let finalList = [];
 
